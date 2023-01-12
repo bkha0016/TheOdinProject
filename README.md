@@ -1,2 +1,3 @@
 # TheOdinProject
-Full Stack Developer Course
+My first github repo!
+Hello Odin!
