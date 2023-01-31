@@ -1,0 +1,136 @@
+.header {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    padding: 20px 10px;
+    align-items: center;
+    background-color: #1F2937;
+    justify-content: space-around;
+
+}
+
+.header .link {
+    display: flex;
+    flex: 1;
+    justify-content: space-evenly;
+    margin: 0 240px;
+    position: relative;
+    top: 50%;
+
+
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+/* the container is going to be container first*/
+.container .first{
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*create another container for the text*/
+.container .first .textFirst{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    margin: 10%;
+    padding: 10%;
+   
+
+}
+
+.container .first .fbutton{
+    border: none;
+    border-radius: 20px;
+    color: #3882F6;
+    background-color: #3882F6;
+    font-family: monospace;
+    font-size: 30px;
+
+}
+
+.container .first .fImage{
+    display: flex;
+    flex: 1;
+
+}
+
+.container .first .titleS{
+    font-size: 48px;
+    font-style: bold;
+    color: #F9FAF8;
+    font-family: monospace;
+} 
+
+.container .first .Stitle{
+    font-size: 18px;
+    color: #E5E7EB;
+    font-family: monospace;
+
+
+}
+
+.header .logo{
+    font-size: 24px;
+    color: #F9FAF8;  
+    text-align: center;
+    display: flex;
+    flex: 1;
+    align-items: flex-end;
+    font-family: monospace;
+    
+
+}
+
+.header .link{
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: flex-end;
+    font-size: 12px;
+    color: #E5E7EB;
+    font-family: monospace;
+
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: flex-end;
+  
+}
+
+.first {
+    background-color: #1F2937;
+}
+
+.second{
+    background-color: #3882F6;
+}
+
+.third {
+    background-color: #E5E7EB;
+}
+
+.container .footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    background-color: #1F2937;
+    text-align: center;
+    font-size: 18px;
+    color: #E5E7EB;
+    font-family: monospace;
+}
