@@ -47,10 +47,12 @@
 .container .first .fbutton{
     border: none;
     border-radius: 20px;
-    color: #3882F6;
+    color: #F9FAF8;
     background-color: #3882F6;
     font-family: monospace;
-    font-size: 30px;
+    font-size: 15px;
+    text-align: center;
+    padding: 15px 32px;
 
 }
 
@@ -86,6 +88,43 @@
     
 
 }
+.container .second .info-box{
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.container .second .twoTitle{
+    text-align: center;
+    font-size: 36px;
+    font-style: bold;
+    color: #1F2937;
+    font-family: monospace;
+
+}
+.container .second .info{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.container .second .info .box{
+    height: 100px;
+    width: 100px;
+    border: 3px solid;
+    border-color: #3882F6;
+
+}
+
+.container .second .info .text{
+    gap: 100%;
+    width: 35%;
+    text-align: center;
+}
 
 .header .link{
     display: flex;
@@ -112,18 +151,96 @@ ul {
 }
 
 .second{
-    background-color: #3882F6;
+    background-color: ghostwhite;
 }
 
 .third {
     background-color: #E5E7EB;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.third .text-third{
+    padding: 20px;
+    margin: 40px;
+    width: 50%;
+    font-size: 36px;
+    font-style: italic;
+    color: #1F2937;
+    text-align: center;
+
+}
+
+.third .text-by {
+    font-size: 18px;
+    font-style: bold;
+    color: black;
+    text-align: right;
+    font-family: monospace;
+
+}
+
+.fourth{
+    background-color: ghostwhite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*create the box*/
+.fourth .fourth-box{
+    padding: 20px;
+    margin: 100px;
+    height: 30%;
+    background-color: #3882F6;
+    border-radius: 10px;
+    text-align: left;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: content-box;
+    width: 20%;
+    
+
+}
+
+.fourth .fourth-box .fourth-text .fourth-title{
+    font-size: 24px;
+    color: #F9FAF8;
+    font-style: bold;
+    width: 50%;
+
+}
+
+.fourth .fourth-box .fourth-text .subtitle{
+    font-size: 12px;
+    color: #F9FAF8;
+    width: 50%;
+
+}
+
+.fourth .fourth-box .fourth-button{
+    background-color: #3882F6;
+    border: none;
+    border-radius: 20px;
+    color: #F9FAF8;
+    font-family: monospace;
+    font-size: 15px;
+    text-align: center;
+    padding: 15px 32px;
+   
+
 }
 
 .container .footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
     left: 0;
     bottom: 0;
     height: 50px;
