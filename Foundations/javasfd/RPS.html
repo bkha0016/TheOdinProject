@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Rock, Paper or Scissors</title>
+</head>
+<body>
+  <script>
+    //global variables to store the score
+    let score = 0;
+    let computerScore = 0;
+
+    //create a fn that randomly return either Rock, Paper or Scissors
+    function getComputerChoice(){
+        //this will return 0, 1, 2
+        const randomInt = Math.floor(Math.random() * 3);
+        
+        //0 will refer to the rock, 1 to paper, 2 to scissors
+        //using if statment to produce the necessary string or switch statements
+        let choice;
+
+        switch (randomInt){
+            case 0:
+                choice = "Rock";
+                break;
+            
+            case 1:
+                choice = "Paper";
+                break;
+
+            case 2:
+                choice = "Scissor";
+                break;
+
+        }
+
+        return choice;
+    }
+    
+    //create a fn that plays a single round of RPS, taking two parameters
+    //playerSelection and computerSelection as the parameter
+    //assuming that only rock paper scissor string is the only argument
+
+    function playRound(playerSelection, computerSelection){
+        const computerChoice = computerSelection.toLowerCase();
+        const playerChoice = playerSelection.toLowerCase();
+        
+        if (playerChoice === "paper" && computerChoice === "rock") {
+
+            score += 1;
+
+            return "You Win! Paper beats Rock";
+            
+        } else if (playerChoice === "scissor" && computerChoice === "paper") {
+            
+            score += 1;
+
+            return "You Win! Scissor beats Paper";
+
+        } else if (playerChoice === "rock" && computerChoice === "scissor") {
+            
+            score += 1;
+
+            return "You Win! Rock beats Scissor";
+
+        } else if (playerChoice === "Paper" && computerChoice === "Scissor") {
+            
+            computerScore += 1;
+
+            return "You Lose! Scissor beats Paper";
+
+        } else if (playerChoice === "scissor" && computerChoice === "rock") {
+            
+            computerScore += 1;
+
+            return "You Lose! Rock beats Scissor";
+
+        } else if (playerChoice === "rock" && computerChoice === "paper") {
+            
+            computerScore += 1;
+            
+            return "You Lose! Paper beats Rock";
+        } else {
+
+            return "It's a TIE!";
+        }
+
+    }
+
+    // game() fn that play a 5 round game that keeps the score and reports the winner or loser at the end
+
+    function game(){
+        let round = 1;
+
+        while (round <= 5){
+
+            let playerSelection = prompt("Rock, Paper, Scissor?");
+            let computerSelection = getComputerChoice();
+
+            console.log(playRound(playerSelection, computerSelection));
+
+            round++;
+
+        }
+
+        if (score > computerScore){
+            return "Player is the Winner!";
+
+        } else if (score == computerScore){
+            return "It's a Tie!";
+
+        } else {
+            return "Computer is the Winner!";
+        }
+
+    }
+
+
+    
+    
+  </script>
+
+  
+</body>
+</html>
