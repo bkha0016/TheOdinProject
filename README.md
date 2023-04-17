@@ -6,3 +6,5 @@ you have extensive coding experience. In other words, this course is perfect for
 Stacks for this course: HTML, CSS, JS, Ruby On Rails, and Node.js
 
 1. Created my first landing page!
+2. Created a Rock, Paper, Scissor game using vanilla JS
+
