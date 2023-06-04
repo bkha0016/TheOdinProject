@@ -5,10 +5,29 @@
   <title>Rock, Paper or Scissors</title>
 </head>
 <body>
+<!-- create 3 buttons with each the selection -->
+
+<button class="button" id="rock-button">Rock</button>
+<button class="button" id="paper-button">Paper</button>
+<button class="button" id="scissor-button">Scissor</button>
+
+<!-- displaying the results of the player action -->
+<div id="playerResults">
+</div>
+
+<!-- displaying the results of the computer action -->
+<div id="computerResults"></div>
+
+
   <script>
     //global variables to store the score
     let score = 0;
     let computerScore = 0;
+    let round = 1;
+    const rockButton = document.getElementById("rock-button");
+    const paperButton = document.getElementById("paper-button");
+    const scissorButton = document.getElementById("scissor-button");
+    const displayRes = document.getElementById("playerResults");
 
     //create a fn that randomly return either Rock, Paper or Scissors
     function getComputerChoice(){
@@ -86,34 +105,50 @@
         }
 
     }
+    
+    
 
     // game() fn that play a 5 round game that keeps the score and reports the winner or loser at the end
+    // adding player selection in this game function
+    function game(playerChoice){
+        let player = playerChoice;
+        let computer = getComputerChoice();
+        
+        // plays a round of the game
+        playRound(player, computer);
+    
+        if (round == 5){
 
-    function game(){
-        let round = 1;
+            if (score > computerScore){
+                return console.log("Player is the Winner!");
 
-        while (round <= 5){
+            } else if (score == computerScore){
+                return console.log("It's a Tie!");
 
-            let playerSelection = prompt("Rock, Paper, Scissor?");
-            let computerSelection = getComputerChoice();
-
-            console.log(playRound(playerSelection, computerSelection));
-
-            round++;
-
-        }
-
-        if (score > computerScore){
-            return "Player is the Winner!";
-
-        } else if (score == computerScore){
-            return "It's a Tie!";
-
-        } else {
-            return "Computer is the Winner!";
+            } else {
+                return console.log("Computer is the Winner!");
+            }
         }
 
     }
+
+    rockButton.addEventListener("click", () => {
+        displayRes.innerHTML = "<h3>Rock was clicked</h3>"
+        game("rock");
+        round++;
+    });
+
+    paperButton.addEventListener("click", () => {
+        displayRes.innerHTML = "<h3>Paper was clicked</h3>"
+        game("paper");
+        round++;
+    });
+
+    scissorButton.addEventListener("click", () => {
+        displayRes.innerHTML = "<h3>Scissor was clicked</h3>"
+        game("scissor");
+        round++;
+    });
 
 
     
