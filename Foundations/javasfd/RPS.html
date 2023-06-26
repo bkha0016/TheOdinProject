@@ -7,6 +7,23 @@
 </head>
 <body>
 
+<!-- display the number of rounds -->
+<div id="rounds"></div>
+<div class="header-container">
+      
+    <!-- display the player results -->
+    <div id="playerRes"></div>
+
+    <!-- display the tie results -->
+    <div id="tieRes"></div>
+
+    <!-- display the bot results -->
+    <div id="botRes"></div>
+
+
+
+</div>
+
 <div class = "container">
     <!-- displaying the results of the player action -->
     <div id="playerResults" class="boxDisp"></div>
@@ -24,21 +41,17 @@
     <button class="button" id="scissor-button">Scissor</button>
 
 </div>
+<div class="container-result">
+    <!-- displaying who is the winner -->
+    <div id="finalResults" class="boxDisp"></div>
 
-<!-- displaying who is the winner -->
-<div id="finalResults" class="boxDisp"></div>
-
-<!-- display the number of rounds -->
-<div id="rounds"></div>
-
-<!-- display the player results -->
-<div id="playerRes"></div>
-
+</div>
   <script>
     //global variables to store the score
     let score = 0;
     let computerScore = 0;
     let round = 1;
+    let tieScore = 0;
     const rockButton = document.getElementById("rock-button");
     const paperButton = document.getElementById("paper-button");
     const scissorButton = document.getElementById("scissor-button");
@@ -47,8 +60,11 @@
     const finalRes = document.getElementById("finalResults");
     const roundRes = document.getElementById("rounds");
     const playerRes = document.getElementById("playerRes");
+    const botRes = document.getElementById("botRes");
+    const tieRes = document.getElementById("tieRes");
 
     //create a fn that randomly return either Rock, Paper or Scissors
+    //todo change innerHTML into a picture of rock, paper, & scissor
     function getComputerChoice(){
         //this will return 0, 1, 2
         const randomInt = Math.floor(Math.random() * 3);
@@ -59,17 +75,17 @@
 
         switch (randomInt){
             case 0:
-                computerRes.innerHTML = "<h3>Computer-Rock</h3>";
+                computerRes.innerHTML = "<img class='fixed-size-img' src='rock.jpeg' alt='Rocky the rock'>";
                 choice = "Rock";
                 break;
             
             case 1:
-                computerRes.innerHTML = "<h3>Computer-Paper</h3>"
+                computerRes.innerHTML = "<img class='fixed-size-img' src='paper.jpeg' alt='Papery the paper'>";
                 choice = "Paper";
                 break;
 
             case 2:
-                computerRes.innerHTML = "<h3>Computer-Scissor</h3>"
+                computerRes.innerHTML = "<img class='fixed-size-img' src='scissor.jpeg' alt='Scissory the scisor'>";
                 choice = "Scissor";
                 break;
 
@@ -107,12 +123,14 @@
         } else if (playerChoice === "Paper" && computerChoice === "Scissor") {
             
             computerScore += 1;
+            
 
             return "You Lose! Scissor beats Paper";
 
         } else if (playerChoice === "scissor" && computerChoice === "rock") {
             
             computerScore += 1;
+           
 
             return "You Lose! Rock beats Scissor";
 
@@ -123,6 +141,7 @@
             return "You Lose! Paper beats Rock";
         } else {
 
+            tieScore += 1;
             return "It's a TIE!";
         }
 
@@ -138,7 +157,7 @@
 
         // display the round of the game
         
-        roundRes.innerHTML = `<h3>${round}</h3>`
+        roundRes.innerHTML = `<h3>Round: ${round}</h3>`
         
         // plays a round of the game
         playRound(player, computer);
@@ -162,24 +181,30 @@
         }
 
     }
-
+    //TODO: add images of rock, paper, and scissor from the player perspective
     rockButton.addEventListener("click", () => {
-        displayRes.innerHTML = "<h3>Player-Rock</h3>";
-        playerRes.innerHTML = `<h3>${score}</h3>`;
+        tieRes.innerHTML = `<h3>Tie: ${tieScore}</h3>`;
+        displayRes.innerHTML = "<img class='fixed-size-img' src='rock.jpeg' alt='Rocky the rock'>";
+        playerRes.innerHTML = `<h3>Player: ${score}</h3>`;
+        botRes.innerHTML = `<h3>Bot: ${computerScore}</h3>`;
         game("rock");
         round++;
     });
 
     paperButton.addEventListener("click", () => {
-        displayRes.innerHTML = "<h3>Player-Paper</h3>";
-        playerRes.innerHTML = `<h3>${score}</h3>`;
+        `<h3>Tie: ${tieScore}</h3>`;
+        displayRes.innerHTML = "<img class='fixed-size-img' src='paper.jpeg' alt='Papery the paper'>";
+        playerRes.innerHTML = `<h3>Player: ${score}</h3>`;
+        botRes.innerHTML = `<h3>Bot: ${computerScore}</h3>`;
         game("paper");
         round++;
     });
 
     scissorButton.addEventListener("click", () => {
-        displayRes.innerHTML = "<h3>Player-Scissor</h3>";
-        playerRes.innerHTML = `<h3>${score}</h3>`;
+        `<h3>Tie: ${tieScore}</h3>`;
+        displayRes.innerHTML = "<img class='fixed-size-img' src='scissor.jpeg' alt='Scissory the scisor'>";
+        playerRes.innerHTML = `<h3>Player: ${score}</h3>`;
+        botRes.innerHTML = `<h3>Bot: ${computerScore}</h3>`;
         game("scissor");
         round++;
     });
