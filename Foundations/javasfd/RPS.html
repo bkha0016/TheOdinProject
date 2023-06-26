@@ -3,12 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <title>Rock, Paper or Scissors</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<div class = "container">
+    <!-- displaying the results of the player action -->
+    <div id="playerResults" class="boxDisp"></div>
+
+    <!-- displaying the results of the computer action -->
+    <div id="computerResults" class="boxDisp"></div>
+</div>
+
+<!-- create 3 buttons with each the selection -->
+
+<div class = "container-button">
+
+    <button class="button" id="rock-button">Rock</button>
+    <button class="button" id="paper-button">Paper</button>
+    <button class="button" id="scissor-button">Scissor</button>
+
+</div>
+
+<!-- displaying who is the winner -->
+<div id="finalResults" class="boxDisp"></div>
+
+<!-- display the number of rounds -->
+<div id="rounds"></div>
+
+<!-- display the player results -->
+<div id="playerRes"></div>
+
   <script>
     //global variables to store the score
     let score = 0;
     let computerScore = 0;
+    let round = 1;
+    const rockButton = document.getElementById("rock-button");
+    const paperButton = document.getElementById("paper-button");
+    const scissorButton = document.getElementById("scissor-button");
+    const displayRes = document.getElementById("playerResults");
+    const computerRes = document.getElementById("computerResults");
+    const finalRes = document.getElementById("finalResults");
+    const roundRes = document.getElementById("rounds");
+    const playerRes = document.getElementById("playerRes");
 
     //create a fn that randomly return either Rock, Paper or Scissors
     function getComputerChoice(){
@@ -21,14 +59,17 @@
 
         switch (randomInt){
             case 0:
+                computerRes.innerHTML = "<h3>Computer-Rock</h3>";
                 choice = "Rock";
                 break;
             
             case 1:
+                computerRes.innerHTML = "<h3>Computer-Paper</h3>"
                 choice = "Paper";
                 break;
 
             case 2:
+                computerRes.innerHTML = "<h3>Computer-Scissor</h3>"
                 choice = "Scissor";
                 break;
 
@@ -86,34 +127,62 @@
         }
 
     }
+    
+    
 
     // game() fn that play a 5 round game that keeps the score and reports the winner or loser at the end
+    // adding player selection in this game function
+    function game(playerChoice){
+        let player = playerChoice;
+        let computer = getComputerChoice();
 
-    function game(){
-        let round = 1;
+        // display the round of the game
+        
+        roundRes.innerHTML = `<h3>${round}</h3>`
+        
+        // plays a round of the game
+        playRound(player, computer);
+    
+        if (round == 5){
 
-        while (round <= 5){
+            if (score > computerScore){
+                finalRes.innerHTML = "<h3>Player is the Winner</h3>";
+                return console.log("Player is the Winner!");
 
-            let playerSelection = prompt("Rock, Paper, Scissor?");
-            let computerSelection = getComputerChoice();
+            } else if (score < computerScore){
+                finalRes.innerHTML = "<h3>Computer is the Winner!</h3>";
+                return console.log("Computer is the Winner!");
+                
 
-            console.log(playRound(playerSelection, computerSelection));
-
-            round++;
-
-        }
-
-        if (score > computerScore){
-            return "Player is the Winner!";
-
-        } else if (score == computerScore){
-            return "It's a Tie!";
-
-        } else {
-            return "Computer is the Winner!";
+            } else {
+                finalRes.innerHTML = "<h3>It's a Tie!</h3>";
+                return console.log("It's a Tie!");
+                
+            }
         }
 
     }
+
+    rockButton.addEventListener("click", () => {
+        displayRes.innerHTML = "<h3>Player-Rock</h3>";
+        playerRes.innerHTML = `<h3>${score}</h3>`;
+        game("rock");
+        round++;
+    });
+
+    paperButton.addEventListener("click", () => {
+        displayRes.innerHTML = "<h3>Player-Paper</h3>";
+        playerRes.innerHTML = `<h3>${score}</h3>`;
+        game("paper");
+        round++;
+    });
+
+    scissorButton.addEventListener("click", () => {
+        displayRes.innerHTML = "<h3>Player-Scissor</h3>";
+        playerRes.innerHTML = `<h3>${score}</h3>`;
+        game("scissor");
+        round++;
+    });
 
 
     
