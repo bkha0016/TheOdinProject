@@ -1,0 +1,51 @@
+body{
+    background-color: lightcyan;
+}
+
+h1{
+    text-align: middle;
+    color: lightcoral;    
+    font-family: monospace;
+    text-align: center;
+    font-size: 85px;
+
+
+
+
+
+}
+
+#boxContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+    
+}
+
+
+.older-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+
+
+}
+
+.new-div {
+    border: 2px solid black;
+    padding: 10px;
+    flex-grow: 1;
+
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
