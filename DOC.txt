@@ -3,3 +3,4 @@ The Odin Project fullstack developer course.
 A txt document of my journey in this course
 
 -- Updated this txt file from a MAC device
+-- Updated this txt file from a Linux device
