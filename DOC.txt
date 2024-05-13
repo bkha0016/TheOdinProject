@@ -4,3 +4,4 @@ A txt document of my journey in this course
 
 -- Updated this txt file from a MAC device
 -- Updated this txt file from a Linux device
+-- Further reviewing of the foundation course and trying to complete by creating the calculator device
