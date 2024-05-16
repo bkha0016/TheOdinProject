@@ -1,0 +1,12 @@
+.red-text {
+    color: red;
+}
+
+.blue-text {
+    color: blue;
+}
+
+.styled-div {
+    border: 1px solid black;
+    background-color: pink;
+}
