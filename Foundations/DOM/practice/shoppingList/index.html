@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping list example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 5px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        button {
+            margin-left: 10px;
+        }
+    </style>
+  </head>
+  <body>
+
+    <h1>My shopping list</h1>
+
+    <div>
+      <label for="itemInput">Enter a new item:</label>
+      <input type="text" name="item" id="itemInput">
+      <button id = "addItemButton">Add item</button>
+    </div>
+
+    <ul id="shoppingList"></ul>
+
+    <script>
+        // Create reference to the elements
+        const list = document.getElementById("shoppingList");
+        const input = document.getElementById("itemInput");
+        const addButton = document.getElementById("addItemButton");
+        
+
+        // Create a function that adds new item
+        function addItem() {
+            // Get the input value
+            const inputValue = input.value.trim();
+            if (inputValue === '') return; // Dont add empty items
+
+            // Clear the input field
+            input.value = '';
+
+            // Create new elements
+            const listItem = document.createElement('li');
+            const span = document.createElement('span');
+            const deleteButton = document.createElement('button');
+
+            // Set the text content
+            span.textContent = inputValue;
+            deleteButton.textContent = 'Delete';
+
+            // Append elements
+            listItem.appendChild(span);
+            listItem.appendChild(deleteButton);
+            list.appendChild(listItem);
+
+            // Add event listener to delete button
+            deleteButton.addEventListener("click", () => {
+                list.removeChild(listItem);
+            });
+
+            // Focus the input field
+            input.focus();
+
+
+        };
+        
+        // Attach the function to the button's click event
+        addButton.addEventListener("click", addItem);
+
+        // Optional: Allow pressing enter to add item
+        input.addEventListener('keypress', (e) => {
+            if (e.key === "Enter") {
+                addItem();
+            }
+        }); 
+
+    </script>
+  </body>
+</html>
