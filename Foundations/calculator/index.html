@@ -5,12 +5,184 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <style>
+        #calc-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #displayResult {
+            font-size: 20px;
+            font-weight: bold;
+            border: 2px solid #000;
+            padding: 20px;
+            text-align: right;
+            margin-bottom: 20px;
+            width: 800px
+        }
+        #button-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .button, .button-operator {
+            flex: 1 1 calc(33.333% - 16px); /* Three items per row, accounting for gap*/
+            box-sizing: border-box;
+            padding: 20px;
+            border: 1px solid #ccc;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
 
     </style>
 </head>
 <body>
+    <div id="calc-container">
+        <div id="displayResult">
+
+        </div>
+        <div id="button-container">
+            <button class="button" id="button1" data-value="1" data-key="49">1</button>
+            <button class="button" id="button2" data-value="2" data-key="50">2</button>
+            <button class="button" id="button3" data-value="3" data-key="51">3</button>
+            <button class="button" id="button4" data-value="4" data-key="52">4</button>
+            <button class="button" id="button5" data-value="5" data-key="53">5</button>
+            <button class="button" id="button6" data-value="6" data-key="54">6</button>
+            <button class="button" id="button7" data-value="7" data-key="55">7</button>
+            <button class="button" id="button8" data-value="8" data-key="56">8</button>
+            <button class="button" id="button9" data-value="9" data-key="57">9</button>
+            <button class="button" id="button0" data-value="0" data-key="48">0</button>
+            <button class="button operator" id="button+" data-value="+" data-key="61">+</button>
+            <button class="button operator" id="button-" data-value="-" data-key="173">-</button>
+            <button class="button operator" id="button*" data-value="*" data-key="88">*</button>
+            <button class="button operator" id="button/" data-value="/" data-key="68">/</button>
+            <button class="button operator" id="equals" data-value="=" data-key="69">=</button>
+            <button class="button" id="clear" data-key="8">C</button>
+        </div>
+
+    </div>
     
-    <script></script>
+    
+    <script>
+
+        window.addEventListener('keydown', function(e) {
+            const key = document.querySelector(`button[data-key='${e.keyCode}']`);
+            key.click();
+        });
+
+
+        function add(num1, num2) {
+            return num1 + num2;
+        }
+
+        function subtract(num1, num2) {
+            return num1 - num2;
+        }
+
+        function multiply(num1, num2) {
+            return num1 * num2;
+        }
+
+        function divide(num1, num2) {
+            return num1 / num2;
+        }
+
+        // operate function that takes an operator and 2 numbers and then calls the math operators fn
+        function operate(operator, num1, num2) {
+            switch (operator) {
+                case "+":
+                    return add(num1, num2);
+                case "-":
+                    return subtract(num1, num2);
+                case "*":
+                    return multiply(num1, num2);
+                case "/":
+                    return divide(num1, num2);
+
+            }
+
+        }
+
+        // displaying result in the displayResult div element
+        const resultDiv = document.getElementById("displayResult");
+        const buttons = document.querySelectorAll('.button');
+        const equalsButton = document.getElementById("equals");
+
+        // to store the variables
+        let currentInput = '';
+        let operator = '';
+        let previousInput = '';
+
+        // Adding event listeners to each of the button
+        // Loop through each button and attach an event listener
+        buttons.forEach(button => {
+            button.addEventListener("click", function() {
+                const value = button.getAttribute("data-value");
+
+                if (value === "+" || value === "-" || value === "*" || value === "/") {
+                    if (currentInput === "") return;
+                    operator = value;
+                    previousInput = currentInput;
+                    currentInput = "";
+                } else if (value === ".") {
+                    if(!currentInput.includes(".")) {
+                        currentInput += value;
+                    }
+                } else if (value === "=") {
+                    return;
+                } else {
+                    currentInput += value;
+                }
+
+                displayResult.textContent = currentInput;
+
+
+
+            });
+        });
+
+        // Adding clear button
+        clear.addEventListener("click", () => {
+            currentInput = "";
+            previousInput = "";
+            operator = "";
+            displayResult.textContent = "0";
+
+        });
+
+        // creating the equal button
+        equalsButton.addEventListener("click", () => {
+            if (currentInput === "" || previousInput === "") return;
+
+            let result;
+
+            switch(operator) {
+                case '+':
+                    result = parseFloat(previousInput) + parseFloat(currentInput);
+                    break;
+                case '-':
+                    result = parseFloat(previousInput) - parseFloat(currentInput);
+                    break;
+                case '*':
+                    result = parseFloat(previousInput) * parseFloat(currentInput);
+                    break;
+                case '/':
+                    result = parseFloat(previousInput) / parseFloat(currentInput);
+                    break;
+            }
+            displayResult.textContent = result;
+            currentInput = result;
+            previousInput = "";
+            operator = "";
+
+        });
+
+
+
+
+
+    </script>
 </body>
 
 </html>
