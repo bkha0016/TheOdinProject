@@ -7,5 +7,6 @@ Stacks for this course: HTML, CSS, JS, Ruby On Rails, and Node.js
 
 1. Created my first landing page!
 2. Created a Rock, Paper, Scissor game with interactivity & animation
-3. Created a Etch-a-Sketch Program 
+3. Created a Etch-a-Sketch Program
+4. Created a Calculator Program w/ GUI
 
