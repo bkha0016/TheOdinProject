@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <ul>
+            <li></li>
+        </ul>
+        <!-- ctrl + / for commenting shortcut -->
+        <!-- ctrl + shift + p and type the followign commands: match to find the end closing or beginning tags of the selected element -->
+        <!--repeat element with ul>li*5-->
+        <!--removee tag by ctrl + shift + P and type the following commands: remove tag-->
+
+        <ul>            
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <!-- by just typing div the emmet will fill it automatically -->
+    <!-- add class in the element tag by typing element.class -->
+    <div>
+        <span class="purple"></span>
+    </div>
+
+    <!-- button[type="button"] -->
+    <button type="button"></button>
+    <div data-selected=""></div>
+    <div data-selected="" class="active"></div>
+
+    <!-- parent that selects it child div.purple>span.cyan -->
+    <div class="purple"><span class="cyan"></span></div>
+
+    <!-- header>nav>ul -->
+    <header>
+        <nav>
+            <ul></ul>
+        </nav>
+    </header>
+
+    <!-- header>nav>ul>li*3{asdsdadsaa} -->
+    <header>
+        <nav>
+            <ul>
+                <li>asdsdadsaa</li>
+                <li>asdsdadsaa</li>
+                <li>asdsdadsaa</li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!--  header>nav>ul>li*3.class-${List Item $} -->
+    <header>
+        <nav>
+            <ul>
+                <li class="class-1">List Item 1</li>
+                <li class="class-2">List Item 2</li>
+                <li class="class-3">List Item 3</li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- creating siblings header+main+footer -->
+    <header></header>
+    <main></main>
+    <footer></footer>
+
+    <!-- header>nav+main+footer -->
+    <header>
+        <nav></nav>
+        <main></main>
+        <footer></footer>
+    </header>
+
+    <!-- (header>nav)+main+footer -->
+    <header>
+        <nav></nav>
+    </header>
+    <main></main>
+    <footer></footer>
+
+    <!-- (header>h2{Heading}+nav>ol>li*5>a{List Item $})+main+footer -->
+    <header>
+        <h2>Heading</h2>
+        <nav>
+            <ol>
+                <li><a href="">List Item 1</a></li>
+                <li><a href="">List Item 2</a></li>
+                <li><a href="">List Item 3</a></li>
+                <li><a href="">List Item 4</a></li>
+                <li><a href="">List Item 5</a></li>
+            </ol>
+        </nav>
+    </header>
+    <main></main>
+    <footer></footer>
+
+
+</body>
+</html>
