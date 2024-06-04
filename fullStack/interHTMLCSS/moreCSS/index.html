@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More CSS Properties</title>
+    <style>
+        .boxBorder {
+            border: 0.5rem outset pink;
+            background-color:aliceblue / 40%;
+            border-radius: 10% 30% 50% 70%;
+            outline: 0.5rem solid khaki;
+            box-shadow: 0 0 0 2rem skyblue;
+            border-radius: 12px;
+            font: bold 1rem sans-serif;
+            margin: 2rem;
+            padding: 1rem;
+            outline-offset: 0.5rem;
+            text-align: center;
+        }
+        
+        .boxShadow {
+            box-shadow: 3px 3px red, -1em 0 .4em olive;
+        }
+
+        .boxShadow2 {
+            box-shadow: 10px 5px 5px aliceblue;
+        }
+
+        .blockquote {
+            padding: 20px;
+            box-shadow: inset 0 -3em 3em rgb(0 200 0 / 30%),
+            0 0 0 2px white, 
+            0.3em 0.3em 1em rgb(200 0 0 / 60%);
+        }
+
+        p.visible {
+        overflow: visible;
+        }
+
+        p.hidden {
+        overflow: hidden;
+        }
+
+        p.clip {
+        overflow: clip;
+        overflow-clip-margin: 1em;
+        }
+
+        p.scroll {
+        overflow: scroll;
+        }
+
+        p.auto {
+        overflow: auto;
+        }
+
+        p.overlay {
+        overflow: overlay;
+        }
+
+        .overflow-box {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .light {
+            opacity: 0.2;
+        }
+
+        .medium {
+            opacity: 0.5;
+        }
+
+        .heavy {
+            opacity: 0.9;
+        }
+
+        .background-opacity {
+            background-color: yellow;
+            font-weight: bold;
+            font-size: 130%;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="boxBorder">
+        I have a border, an outline, and a box shadow! Amazing, isn't it?
+    </div>
+
+    <div class="boxShadow">
+        <p>This is a box with a box-shadow around it.</p>
+    </div>
+
+    <div class="boxShadow2">
+
+        Hello my Timmies!
+
+    </div>
+    <blockquote>
+        <q>
+            You may shoot me with your words, <br />
+            You may cut me with your eyes, <br />
+            You may kill me with your hatefulness, <br />
+            But still, like air, I'll rise.
+        </q>
+        <p>&mdash; Maya Angelou</p>
+    </blockquote>
+
+    <div class="overflow-box">
+
+    <div>
+        <code>visible</code>
+        <p class="visible">
+            Maya Angelou: "I've learned that people will forget what you said, people
+    will forget what you did, but people will never forget how you made them
+    feel."
+        </p>
+    </div>
+    
+    <div>
+        <code>hidden</code>
+        <p class="hidden">Maya Angelou: "I've learned that people will forget what you said, people
+            will forget what you did, but people will never forget how you made them
+            feel."</p>
+    </div>
+
+    <div>
+        <code>clip</code>
+        <p class="clip">Maya Angelou: "I've learned that people will forget what you said, people
+            will forget what you did, but people will never forget how you made them
+            feel."</p>
+    </div>
+
+    <div>
+        <code>scroll</code>
+        <p class="scroll">Maya Angelou: "I've learned that people will forget what you said, people
+            will forget what you did, but people will never forget how you made them
+            feel."</p>
+    </div>
+
+    <div>
+        <code>auto</code>
+        <p class="auto">Maya Angelou: "I've learned that people will forget what you said, people
+            will forget what you did, but people will never forget how you made them
+            feel."</p>
+    </div>
+
+    <div>
+        <code>overlay</code>
+        <p class="overlay">Maya Angelou: "I've learned that people will forget what you said, people
+            will forget what you did, but people will never forget how you made them
+            feel."</p>
+    </div>
+
+</div>
+
+<!-- setting opacity -->
+<div class="background-opacity">
+<div class="light">You can barely see this.</div>
+<div class="medium">This is easier to see.</div>
+<div class="heavy">This is very easy to see.</div>
+</div>
+
+</body>
+</html>
