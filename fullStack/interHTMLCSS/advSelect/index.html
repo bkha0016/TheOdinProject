@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advance Selector</title>
+    <style>
+
+        /*to select all the child and grand-child inside of main*/
+        main div {
+
+        }
+
+        /*This rule will only select the divs with the class child*/
+        main > div {
+
+        }
+
+        /*This rule will only select the divs with the class grand-child*/
+        main > div > div {
+
+        }
+
+        /* This rule will only select the div with the class child group2 */
+        .group1 + div {
+
+        }
+
+        /* This rule will only select the div with the class child group3 */
+        .group1 + div + div {
+
+        }
+
+        /* This rule will select all of .group1's siblings - in this case the 2nd and the 3rd*/
+        .group1 ~ div {
+            
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <!-- > the child combinator, + the adjacent sibling combinator, ~ the general sibling combinator -->
+    <main class="parent">
+        <class class="child group1">
+            <class class="grand-child group1"></class>
+        </class>
+        <class class="child group2">
+            <class class="grand-child group2"></class>
+        </class>
+        <class class="child group3">
+            <class class="grand-child group3"></class>
+        </class>
+    </main>
+    
+</body>
+</html>
