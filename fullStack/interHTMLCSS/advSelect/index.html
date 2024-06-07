@@ -33,8 +33,106 @@
 
         /* This rule will select all of .group1's siblings - in this case the 2nd and the 3rd*/
         .group1 ~ div {
-            
+
         }
+
+        /* we could use the :first-child pseudo-class selector - this will always target the first child element in the article + we can combine with the ::first-line pseduo-element selector*/
+        article p:first-child::first-line {
+            font-size: 120%;
+            font-weight: bold;
+        }
+        /* ::first-line psuedo-element selecto will do this for you reliably - if the number of words increases or decreases it will still only selects the first line
+        article p::first-line {
+            font-size: 120%;
+            font-weight: bold;
+        }        
+
+        */
+
+        /* dynamic pseudo-classes, act as if a class had been added to the element when the user interacts with it*/
+        a:link,
+        a:visited {
+            color: rebeccapurple;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color:hotpink;
+        }
+
+        .box::before {
+            content: "This should show before the other content."
+        }
+
+        .box::after {
+            content: " ➥ hello my little chimpanzee";
+        }
+        /* Dynamic & User action pseudo-classes 
+        These types of useful pseudo-classes can make your page feel much more dynamic and interactive
+        :focus applies to an element that is currently selected by the user either through selecting it with their cursor or using their keyboard
+        :hover will affect anything under the user's mouse pointer. It can be used to give extra oomph to buttotns and links to highlight
+        :active applies to elements that are currenly being clicked, and is especially useful for giving your user feedback that their action had an effect.
+        */
+
+        /* This rule will apply to all links */
+        a {
+            text-decoration: underline;
+        }
+
+        /* This will apply to unvisited links */
+        a:link {
+            color: blue;
+        }
+
+        /* This applies to all links the user has clicked */
+        a:visited {
+            color: purple;
+        }
+
+        /* emojify before content and after */
+        .emojify::before {
+            content: '😎 🥸 🤓';
+        }
+
+        .emojify::after {
+            content: '🤓 🥸 😎';
+        }
+
+        [src] {
+            /* This will target any element that has a src attribute */
+        }
+
+        img[src] {
+            /* This will only target img elements that have a src attribute */
+        }
+
+        img[src="puppy.jpg"] {
+            /* This will target img elements with a src attribute that is exatcly "puppy.jpg" */
+        }
+
+        [class^='aus'] {
+            /* classes are attributes too! This will target any class that begins with 'aus' 
+               class = 'austria'
+               class = 'australia' 
+            */
+        }
+
+        [src$='.jpg'] {
+            /* This will target any src attribute that ends in .jpg 
+            src="puppy.jpg"
+            src="kitten.jpg"
+            */
+        }
+
+        [for*='ill'] {
+            /* This will target any for attribute that has ill anywhere inside it: 
+            for="bill"
+            for="jill"
+            for="silly"
+            for="ill"
+            */
+        }
+
 
 
 
@@ -53,6 +151,23 @@
             <class class="grand-child group3"></class>
         </class>
     </main>
+
+    <article>
+        <p>Hello my Timmies!</p>
+        <p>Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo
+                    melon azuki bean garlic.</p>
+        
+        <p>Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard
+                    greens dandelion okra wakame tomato. Dandelion cucumber earthnut pea peanut soko zucchini.</p>
+        </article>
+
+    <p><a href="">Hover over me</a></p>
+
+    <p class="box">Content in the box in my HTML page.</p>
+
+    <div> Let's <span class="emojify">emojify</span>this span!</div>
+
+
     
 </body>
 </html>
