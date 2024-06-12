@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        input {
+            border: 2px solid #000;
+            margin-bottom: 15px;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        input:invalid {
+            border-color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- To make a field required, we add the required attribute to it -->
+    <form action="#" method="get">
+        <div>
+            <label for="user_email">*Email:</label>
+            <input type="email" name="user_email" id="user_email" required>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="user_password">*Password:</label>
+            <input type="password" name="user_password" id="user_password" required>
+        </div>
+
+        <button type="submit">Login</button>
+
+
+
+    </form>
+
+    <br>
+
+    <!-- minlenght and maxlenght validation attribute with an integer value -->
+     <form action="" method="get">
+        <div>
+            <textarea placeholder="What's happening?" minlength="3" maxlength="20"></textarea>
+        </div>
+        <button type="submit">Tweet</button>
+     </form>
+
+     <br>
+
+     <!-- minVal + maxVal in a integer value number -->
+      <form action="#" method="get">
+        <div>
+            <label for="quantity">Quantity</label>
+        </div>
+        <input type="number" name="quantity" id="quantity" min="1" max="5" value="0">
+        <div><button type="submit">Place Order</button></div>
+      </form>
+
+      <br>
+
+      <!-- Regex Pattern Validation -->
+      <form action="#" method="get">
+        <div><label for="zip_code">Postal / Zip Code:</label></div>
+        <input type="text" name="zip_code" id="zip_code" pattern="(\d{5}([\-]\d{4})?)" required title="Please enter a valid zip code, example: 65251" placeholder="65251">
+
+        <br>
+        <div><label for="url_web">Website:</label></div>
+        <input type="url" name="url_web" id="url_web">
+
+        <div><button type="submit">Submit</button></div>
+
+      </form>
+    
+</body>
+</html>

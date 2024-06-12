@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+    <title>Project: sign-up-form</title>
+</head>
+<style>
+    @font-face {
+        font-family: Norse-Bold;
+        src: url("Norse-Bold.otf") format("opentype");
+        font-weight: normal;
+        font-style: normal;
+    }
+    .container {
+        display: flex;
+        height: 100vh;
+    }
+
+    .bgImageForm {
+        display: flex;
+        flex: 1.5;
+        background-image: url("BGphoto.avif");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+        overflow: hidden;
+
+    }
+
+
+    .sign-up-form {
+        flex: 3;
+        background-color: #f2f9f1;
+    }
+    /* div flex box on the bgImageForm container */
+    .logoForm {        
+        background-color: rgb(0 0 0 / 75%);
+        position: absolute;
+        justify-content: center;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        height: 120px;
+        align-items: center;
+        color: white;
+        display: flex;
+        text-shadow: 0 0 10px rgb(0, 0, 0), 0 0 10px #000000;
+        font-family: Norse-Bold;
+
+    }
+
+    .logoForm > p{
+        font-style: Norse-Bold;
+        font-size: 90px;
+        
+    }
+
+    /* logo styling */
+    .logo {
+        position: absolute;
+        opacity: 1;
+        width: 90px;
+        height: auto;
+        margin-right: 300px;
+
+        
+    }
+    .bgImageForm > p {
+        position: absolute;
+        font-family: Norse-Bold;
+        font-size: 1em;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        text-shadow: 0 0 10px rgb(0, 0, 0), 0 0 10px #000000;
+
+    }
+
+    .sign-up-form {
+        display: flex;
+        flex-direction: column;  /* Stack items vertically */
+        font-weight: bold;
+        font-size: larger;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        flex-wrap: wrap;
+        
+    
+
+    }
+
+    .intro-p-form {
+        margin-top: 150px;
+        padding-right: 10%;
+        margin-left: 10%;
+    }
+
+    .form-row {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .form-group {
+        flex: 0 1 calc(50% - 10px); /* Two items per row with 10px gap */
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 5px;
+        box-sizing: border-box;
+    }
+
+    form {
+        background-color: white;
+        box-shadow: 10px 5px 5px darkslategray;
+        padding-left: 10%;
+        padding-right: 20%;
+        
+    }
+
+    .form-group input:focus {
+        border-color: lightseagreen;
+    
+    }
+    
+    .form-group input[type="password"]:invalid {
+        border-color: lightcoral;
+
+    }
+
+    .form-group input[type="password"]:invalid::after {
+        content: "Passwords do not match"; /* Custom message */
+        display: block; /* Display as a block element */
+        color: red; /* Text color */
+        font-size: 12px; /* Font size */
+        margin-top: 5px; /* Margin for spacing */
+
+    }
+
+    .submit-button {
+        background-color: #4caf50; /* Green background color */
+        color: #fff; /* White text color */
+        border: none; /* Remove border */
+        border-radius: 5px; /* Rounded corners to create a pill shape */
+        padding: 10px 20px; /* Padding for button size */
+        font-size: 16px; /* Font size */
+        cursor: pointer; /* Cursor style */
+        transition: background-color 0.3s ease; /* Smooth transition for background color */
+        margin-top: 20px;
+        box-shadow: 10px 5px 5px darkslategray;
+        margin-bottom: 10%;
+    }
+
+    .submit-button:hover {
+        background-color: #45a049;
+    }
+
+    .green-button {
+        color: #4caf50;
+        text-decoration: none;
+    }
+
+    form + p {
+        padding-left: 10%;
+    }
+
+
+
+</style>
+<body>
+    <!-- Creating two divs to separate between the sign-up form and the bg image -->
+    <div class="container"> 
+        <div class="bgImageForm">
+            <div class="logoForm">
+                <img src="odin-lined.png" alt="odin logo image" class="logo">
+                <p>ODIN</p>
+
+            </div>
+            <p>Photo by Johannes Hofmann on Unsplash</p>
+            
+        </div>
+
+        <div class="sign-up-form">
+            <p class="intro-p-form">This is not a real online service! You know you need something
+                like this in your life to help you realize your deepest dreams.
+                Sign up <i>now</i> to get started.<br><br> You <i>know</i> you want to.
+            </p>
+
+            <form action="#" method="post">
+                <h2>Let's Do This!</h2>
+
+                <div class="form-row">
+                <div class="form-group">
+                    <label for="first-name">First Name:</label>
+                    <input type="text" name="first-name" id="first-name" required>
+
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name:</label>
+                    <input type="text" id="last-name" name="last-name" required>
+                </div>
+                </div>
+
+                <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                </div>
+
+                <div class="form-row">
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password:</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                    
+                </div>
+                </div>
+
+                <button type="submit" class="submit-button">Create Account</button>
+                
+
+
+            </form>
+
+            <p>Already have an account? <a href="#" class="green-button">Log in</a></p>
+
+        </div>
+    </div>
+    
+</body>
+</html>
