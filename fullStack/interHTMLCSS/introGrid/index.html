@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro to Grid</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: 75px 75px 75px;
+            grid-template-rows: 75px 75px;
+            gap: 32px;
+        }
+
+        .card {
+            background-color: peachpuff;
+            border: 1px solid black;
+
+        }
+        .container {
+            display: grid;
+            /* grid-template-columns: 50px 50px 50px;
+            grid-template-rows: 50px 50px; */
+            /* alternatively using grid-template is better: rows / columns */
+            grid-template: 50px 50px / 50px 50px 50px; 
+            grid-auto-flow: column; 
+            /* be much less common to want extra content added horizontally along the grid, which implicit track sizes can be defined with the grid-auto-columns property */
+            /* column & row gap increaess the gap between the items in the grid */
+            column-gap: 50px;
+            row-gap: 50px;
+        }
+
+        .container > div {
+            border: 1px solid blue;
+        }
+
+        .container-2 {
+            display: grid;
+            grid-template-rows: 100px 100px 100px;
+            grid-template-columns: 100px 100px 100px;
+        }
+
+        .container-2 > .item {
+            background-color: orange;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        .first-row {
+
+        }
+
+        .last-column {
+
+        }
+
+
+        .container-3 {
+            display: inline-grid;
+            grid-template: 40px 40px 40px 40px 40px / 40px 40px 40px 40px 40px;
+            background-color: lightblue; 
+            }
+
+        .room {
+            border: 1px solid;
+            font-size: 50%;
+            text-align: center;
+        }
+
+        #living-room {
+            grid-column-start: 1;
+            grid-column-end: 6;
+            grid-row-start: 1;
+            grid-row-end: 3;
+        }
+
+        #kitchen {
+            grid-column: 4 / 6;
+            grid-row: 3 / 6;
+        }
+
+        #bedroom {
+            grid-column-start: 2;
+            grid-column-end: 4;
+            grid-row-start: 3;
+            grid-row-end: 5;
+        }
+
+        #bathroom {
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 3;
+            grid-row-end: 6;
+        }
+
+        #closet {
+            grid-column-start: 2;
+            grid-column-end: 4;
+            grid-row-start: 5;
+            grid-row-end: 6;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+    </div>
+
+    <br>
+    <!-- Grid container, element is turned when the property display: grid or dsiplay: inline-grid -->
+    <!-- If we had another element as a child under one of these child elements it would not be a grid item  -->
+    <div class="container">
+        <div>Item 1</div>
+        <div>Item 2</div>
+            <!-- <p>I am not a grid item!</p> -->
+        <div>Item 3</div>
+        <div>Item 4</div>
+     </div>
+    
+     <br>
+
+     <div class="container-2">
+        <div class="item first-row">A</div>
+        <div class="item first-row">B</div>
+        <div class="item first-row last-column">C</div>
+        <div class="item">D</div>
+        <div class="item">E</div>
+        <div class="item last-column">F</div>
+        <div class="item">G</div>
+        <div class="item">H</div>
+        <div class="item last-column">I</div>
+
+     </div>
+
+     <br>
+
+     <div class="container-3">
+        <div class="room" id="living-room">Living Room</div>
+        <div class="room" id="kitchen">Kitchen</div>
+        <div class="room" id="bedroom">Bedroom</div>
+        <div class="room" id="bathroom">Bathroom</div>
+        <div class="room" id="closet">Closet</div>
+      </div>
+
+</body>
+</html>
