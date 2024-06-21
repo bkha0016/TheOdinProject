@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-rows: auto 1fr;
+            grid-template-columns: 2fr 5fr;
+            grid-template-areas: 
+            "sidebar header"
+            "sidebar main";
+            height: 100vh;
+        }
+
+        /* HEADER SECTION */
+        .header {
+            grid-area: header;
+            background-color: white;
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            column-gap: 10px;
+            row-gap: 50px;
+            padding: 10px;
+        }
+
+        .searchLogo {
+            grid-area: 1 / 1 / 2 / 2;
+        }
+
+        .searchBar {
+            grid-area: 1 / 2 / 2 / 6;
+        }
+
+        .ringLogo {
+            grid-area: 1 / 6 / 2 / 7;
+        }
+
+        .profileLogo {
+            grid-area: 1 / 7 / 2 / 8;
+        }
+
+        .profileName {
+            grid-area: 1 / 8 / 2 / 9;
+        }
+
+        .profileLogo2 {
+            grid-area: 2 / 1 / 3 / 2;
+        }
+
+        .profileName2 {
+            grid-area: 2 / 2 / 3 / 4;
+        }
+
+        .new {
+            grid-area: 2 / 6 / 3 / 7;
+        }
+
+        .upload {
+            grid-area: 2 / 7 / 3 / 8;
+        }
+
+        .share {
+            grid-area: 2 / 8 / 3 / 9;
+        }
+
+        /* END OF HEADER SECTION */
+
+        .sidebar {
+            grid-area: sidebar;
+            background-color: powderblue;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main {
+            grid-area: main;
+            background-color: ghostwhite;
+        }
+
+        .user-panels, .user-options {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
+        .item.logo {
+            flex-basis: 90px;
+            align-content: center;
+        }
+
+        .item.user-panels {
+            flex-basis: 300px;
+        }
+
+        .item.user-options {
+            flex-basis: 100px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <div class="searchLogo">search</div>
+            <div class="searchBar">///////////////////////////////////////////////////////////////////////////////</div>
+            <div class="ringLogo">&</div>
+            <div class="profileLogo">( ._. )</div>
+            <div class="profileName">Morgan Oakley</div>
+            <div class="profileLogo2">( ._. )</div>
+            <div class="profileName2">Morgan Oakley</div>
+            <div class="new">new</div>
+            <div class="upload">upload</div>
+            <div class="share">share</div>
+        </div>
+
+        <div class="sidebar">
+            <div class="item logo">/*/ Dashboard</div>
+            <div class="item user-panels">
+                <div class="home">Home</div>
+                <div class="profile">Profile</div>
+                <div class="messages">Messages</div>
+                <div class="history">History</div>
+                <div class="tasks">Tasks</div>
+                <div class="community">Communities</div>
+            </div>
+            <div class="item user-options">
+                <div class="settings">Settings</div>
+                <div class="support">Support</div>
+                <div class="privacy">Privacy</div>
+            </div>
+        </div>
+        <div class="main"></div>
+    </div>
+
+</body>
+</html>
