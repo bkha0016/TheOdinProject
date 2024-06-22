@@ -25,6 +25,7 @@
             column-gap: 10px;
             row-gap: 50px;
             padding: 10px;
+            height: 15vh;
         }
 
         .searchLogo {
@@ -69,16 +70,14 @@
 
         /* END OF HEADER SECTION */
 
+        /* START OF SIDEBAR SECTION */
+
         .sidebar {
             grid-area: sidebar;
             background-color: powderblue;
             display: flex;
             flex-direction: column;
-        }
-
-        .main {
-            grid-area: main;
-            background-color: ghostwhite;
+            width: 30vh;
         }
 
         .user-panels, .user-options {
@@ -98,6 +97,126 @@
 
         .item.user-options {
             flex-basis: 100px;
+        }
+
+        /* END OF SIDEBAR SECTION */
+
+        /* START OF MAIN SECTION */
+
+        .main {
+            grid-area: main;
+            background-color: ghostwhite;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            grid-column-gap: 14px;
+            grid-row-gap: 31px;
+        }
+        /* START OF PROJECT */
+        .project {
+            grid-area: 1 / 1 / 5 / 3;
+            /* background-color: brown; */
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            grid-column-gap: 34px;
+            grid-row-gap: 50px;
+        }
+
+        .card {
+            border: 1px solid black;
+        }
+
+
+        /* END OF PROJECT */
+
+       
+
+        .trending {
+            grid-area: 3 / 3 / 5 / 4;
+
+        }
+
+
+        /* END OF MAIN SECTION */
+
+        /* START OF CARD */
+        .card {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+
+        }
+
+        .card > b {
+            grid-area: 1 / 1 / 2 / 3;
+            align-items: center;
+        }
+
+        .card > p {
+            grid-area: 1 / 1 / 2 / 3;
+            align-items: center;
+
+        }
+
+        .card-icon {
+            grid-area: 2 / 2 / 3 / 3;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* END OF CARD */
+
+        /* START OF ANNOUNCEMENT CARD */
+        .announce {
+            grid-area: 1 / 3 / 3 / 4;
+            border: black solid 1px;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(3, 1fr);
+        }
+
+        .trending {
+            border: black solid 1px;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(4, 1fr);
+
+
+        }
+
+        .postname1 {
+            grid-area: 1 / 1 / 2 / 2;
+        }
+
+        .postname2 {
+            grid-area: 2 / 1 / 3 / 2;
+        }
+
+        .postname3 {
+            grid-area: 3 / 1 / 4 / 2;
+        }
+
+        .postname4 {
+            grid-area: 4 / 1 / 5 / 2;
+        }
+
+
+        .post1 {
+            grid-area: 1 / 1 / 2 / 2;
+            border-bottom: solid black 1px;
+        }
+
+        .post2 {
+            grid-area: 2 / 1 / 3 / 2;
+            border-bottom: solid black 1px;
+        }
+
+        .post3 {
+            grid-area: 3 / 1 / 4 / 2;
+            border-bottom: solid black 1px;
         }
 
     </style>
@@ -134,7 +253,67 @@
                 <div class="privacy">Privacy</div>
             </div>
         </div>
-        <div class="main"></div>
+        <div class="main">
+            <div class="project">
+                <div class="card">
+                    <b>Super Cool Project</b>
+                    <p>Sed tempus ut lacus ut scelerisque. Suspendisse sollicitudin nibh erat, id facilsis felis accumsan nec.</p>
+                    <div class="card-icon">
+                        <div class="star">*</div>
+                        <div class="eye">(0+)</div>
+                        <div class="link">Y</div>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <b>Less Cool Project</b>
+                    <p>Nullam condimentum ipsum ut lectus vehicula consectetur. Quisque sed dolor tincidunt, consectetur sapien et, facilisis dolor. Duis sem purusm dignissim ut sapien in, varius pallentesque lacus</p>
+                    <div class="card-icon">
+                        <div class="star">*</div>
+                        <div class="eye">(0+)</div>
+                        <div class="link">Y</div>
+                    </div>
+                
+                </div>
+                <div class="card">
+                <b>Impossible App</b>
+                <p>In hac habitasse platea dictumst. Vivamus dictum rutrum arcu, a placerat velit sagittis id.</p>
+                    <div class="card-icon">
+                        <div class="star">*</div>
+                        <div class="eye">(0+)</div>
+                        <div class="link">Y</div>
+                    </div>
+                </div>
+                <div class="card">Easy Peasy App</div>
+                <div class="card">Ad Blocker</div>
+                <div class="card">Money Maker</div>
+
+
+            </div>
+            <div class="announce">
+                <div class="post1">Site Maintenance</div>
+                <div class="post2">Community Share Day</div>
+                <div class="post3">Updated Privacy Policy</div>
+
+
+            </div>
+            <div class="trending">
+                <div class="postname1">;D
+                    <h3>@tegan</h3>
+                </div>
+                <div class="postname2">:C
+                    <h3>@morgan</h3>
+                </div>
+                <div class="postname3">>:D
+                    <h3>@kendall</h3>
+                </div>
+                <div class="postname4">>:C
+                    <h3>@alex</h3>
+                </div>
+
+            </div>
+
+        </div>
     </div>
 
 </body>
