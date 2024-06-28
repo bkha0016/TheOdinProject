@@ -9,4 +9,6 @@ Stacks for this course: HTML, CSS, JS, Ruby On Rails, and Node.js
 2. Created a Rock, Paper, Scissor game with interactivity & animation
 3. Created a Etch-a-Sketch Program
 4. Created a Calculator Program w/ GUI
-
+5. Created my first sign-up form
+6. Created my first grid design CSS
+7. Created a tic-tac-toe game w/ GUI
