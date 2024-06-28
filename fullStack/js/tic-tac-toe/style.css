@@ -43,3 +43,7 @@ button {
     font-size: 16px;
     cursor: pointer;
 }
+
+.cell.winner {
+    background-color: yellow;
+}

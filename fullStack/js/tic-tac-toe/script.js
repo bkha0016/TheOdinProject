@@ -123,22 +123,28 @@ function logicBoard(boardSize) {
     }
 
     function checkWinner() {
+        // Check rows
         for (let i = 0; i < boardSize; i++) {
             if (board[i][0] !== '' && board[i][0] === board[i][1] && board[i][1] === board[i][2]) {
-                return board[i][0];
+                return { winner: board[i][0], cells: [[i, 0], [i, 1], [i, 2]] };
             }
         }
+
+        // Check columns
         for (let i = 0; i < boardSize; i++) {
             if (board[0][i] !== '' && board[0][i] === board[1][i] && board[1][i] === board[2][i]) {
-                return board[0][i];
+                return { winner: board[0][i], cells: [[0, i], [1, i], [2, i]] };
             }
         }
+
+        // Check diagonals
         if (board[0][0] !== '' && board[0][0] === board[1][1] && board[1][1] === board[2][2]) {
-            return board[0][0];
+            return { winner: board[0][0], cells: [[0, 0], [1, 1], [2, 2]] };
         }
         if (board[0][2] !== '' && board[0][2] === board[1][1] && board[1][1] === board[2][0]) {
-            return board[0][2];
+            return { winner: board[0][2], cells: [[0, 2], [1, 1], [2, 0]] };
         }
+
         return null;
     }
 
@@ -185,16 +191,18 @@ function gameController(playerOneName, playerTwoName, boardSize) {
 
     function playRound(row, column) {
         if (gameOver) {
-            console.log("Game over. Please restart to play again.");
+            console.log('Game over. Please restart to play again.');
             return;
         }
 
         if (game.makeMove(row, column, activePlayer)) {
-            const winner = game.checkWinner();
-            if (winner) {
+            const result = game.checkWinner();
+            if (result) {
                 console.clear();
-                console.log(`Player ${winner} wins!`);
+                console.log(`Player ${result.winner} wins!`);
+                highlightWinner(result.cells);
                 game.printBoard();
+                document.getElementById('winnerMessage').textContent = `Player ${result.winner} wins!`;
                 gameOver = true;
                 return;
             }
@@ -202,6 +210,7 @@ function gameController(playerOneName, playerTwoName, boardSize) {
                 console.clear();
                 console.log('The game is a draw!');
                 game.printBoard();
+                document.getElementById('winnerMessage').textContent = 'The game is a draw!';
                 gameOver = true;
                 return;
             }
@@ -211,6 +220,13 @@ function gameController(playerOneName, playerTwoName, boardSize) {
         } else {
             console.log('Invalid move. Try again.');
         }
+    }
+
+    function highlightWinner(cells) {
+        cells.forEach(([row, col]) => {
+            const cell = document.querySelector(`.cell[data-row="${row}"][data-col="${col}"]`);
+            cell.classList.add('winner');
+        });
     }
 
     return {
