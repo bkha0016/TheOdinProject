@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'norse-bold';
+  src: url('./norse-bold.otf') format('otf');
+  font-weight: 600;
+  font-style: normal;
+}
+
+
+.hello {
+  color: red;
+  font-family: 'norse-bold';
+  background: url('./icon.png');
+}
