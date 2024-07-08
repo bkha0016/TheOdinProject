@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+  <script defer src="bundle.js"></script></head>
+  <body>
+    <form id="registration-form" novalidate>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required />
+        <span class="error-message" id="email-error"></span>
+      </div>
+
+      <div>
+        <label for="country">Country:</label>
+        <select name="country" id="country" required>
+          <option value="">Select a country</option>
+          <option value="US">United States</option>
+          <option value="CA">Canada</option>
+
+          <!-- You can add more countries as needed -->
+        </select>
+        <span class="error-message" id="country-error"></span>
+      </div>
+      <div>
+        <label for="zip">Zip Code:</label>
+        <input type="text" name="zip" id="zip" required />
+        <span class="error-message" id="zip-error"></span>
+      </div>
+
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+        <span class="error-message" id="password-error"></span>
+      </div>
+
+      <div>
+        <label for="password-confirmation">Confirm Password:</label>
+        <input
+          type="password"
+          name="password-confirmation"
+          id="password-confirmation"
+          required
+        />
+        <span class="error-message" id="password-confirmation-error"></span>
+      </div>
+      <button type="submit">Submit</button>
+      <span class="high-five" id="high-five-message"></span>
+    </form>
+  </body>
+</html>

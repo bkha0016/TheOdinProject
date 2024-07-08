@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Favorite fruit start</title>
+    <style>
+      input:invalid {
+        border: 2px dashed red;
+      }
+
+      input:invalid:required {
+        background-image: linear-gradient(to right, pink, lightgreen);
+      }
+
+      input:valid {
+        border: 2px solid black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form>
+      <div>
+        <label for="choose"
+          >Would you prefer a banana or a cherry? (required)</label
+        >
+        <input
+          id="choose"
+          name="i_like"
+          required
+          pattern="[Bb]anana | [Cc]herry"
+          minlength="6"
+          maxlength="6"
+        />
+      </div>
+      <div>
+        <label for="number">How many would you like?</label>
+        <input
+          type="number"
+          id="number"
+          name="amount"
+          value="1"
+          min="1"
+          max="10"
+        />
+      </div>
+      <button>Submit</button>
+    </form>
+
+    <form>
+      <fieldset>
+        <legend>
+          Do you have a driver's license?<span aria-label="required">*</span>
+        </legend>
+        <!-- While only one radio button in a same-named group can be selected at a time,
+               and therefore only one radio button in a same-named group having the "required"
+               attribute suffices in making a selection a requirement -->
+        <input type="radio" required name="driver" id="r1" value="yes" /><label
+          for="r1"
+          >Yes</label
+        >
+        <input type="radio" required name="driver" id="r2" value="no" /><label
+          for="r2"
+          >No</label
+        >
+      </fieldset>
+      <p>
+        <label for="n1">How old are you?</label>
+        <!-- The pattern attribute can act as a fallback for browsers which
+               don't implement the number input type but support the pattern attribute.
+               Please note that browsers that support the pattern attribute will make it
+               fail silently when used with a number field.
+               Its usage here acts only as a fallback -->
+        <input
+          type="number"
+          min="12"
+          max="120"
+          step="1"
+          id="n1"
+          name="age"
+          pattern="\d+"
+        />
+      </p>
+      <p>
+        <label for="t1"
+          >What's your favorite fruit?<span aria-label="required"
+            >*</span
+          ></label
+        >
+        <input
+          type="text"
+          id="t1"
+          name="fruit"
+          list="l1"
+          required
+          pattern="[Bb]anana|[Cc]herry|[Aa]pple|[Ss]trawberry|[Ll]emon|[Oo]range"
+        />
+        <datalist id="l1">
+          <option>Banana</option>
+          <option>Cherry</option>
+          <option>Apple</option>
+          <option>Strawberry</option>
+          <option>Lemon</option>
+          <option>Orange</option>
+        </datalist>
+      </p>
+      <p>
+        <label for="t2">What's your email address?</label>
+        <input type="email" id="t2" name="email" />
+      </p>
+      <p>
+        <label for="t3">Leave a short message</label>
+        <textarea id="t3" name="msg" maxlength="140" rows="5"></textarea>
+      </p>
+      <p>
+        <button>Submit</button>
+      </p>
+    </form>
+    <br />
+    <form novalidate>
+      <p>
+        <label for="mail">
+          I would like you to provide me with an email address:
+
+          <input type="email" id="mail" name="mail" required minlength="8" />
+          <span class="error" aria-live="polite"></span>
+        </label>
+      </p>
+      <button>Submit</button>
+    </form>
+
+    <script src="script.js"></script>
+  </body>
+</html>
