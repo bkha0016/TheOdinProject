@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <h1>Weather App</h1>
+    <form id="locationForm">
+      <label for="location">Enter Location:</label>
+      <input type="text" name="location" id="location" required />
+      <button type="submit">Get Weather</button>
+    </form>
+    <div id="loading">Loading...</div>
+    <div id="weatherInfo">
+      <h2>Weather in <span id="locationName"></span></h2>
+      <p><strong>Description:</strong> <span id="description"></span></p>
+      <p>
+        <strong>Current Temperature:</strong> <span id="currentTemp"></span>°C
+      </p>
+      <p><strong>Humidity:</strong> <span id="humidity"></span>%</p>
+      <p><strong>Conditions:</strong> <span id="conditions"></span></p>
+      <h3>Daily Forecast</h3>
+      <div id="dailyForecast"></div>
+    </div>
+  </body>
+</html>

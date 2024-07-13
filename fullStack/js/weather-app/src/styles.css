@@ -1,0 +1,39 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  background-color: #f0f0f0;
+}
+
+#locationForm {
+  margin: 20px auto;
+  background-color: palegreen;
+}
+
+#weatherInfo {
+  display: none;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#loading {
+  display: none;
+  margin-top: 20px;
+}
+
+#dailyForecast {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.daily-forecast {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  width: 150px;
+}
