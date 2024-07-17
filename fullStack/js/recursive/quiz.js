@@ -63,3 +63,50 @@ function productOfArray(list) {
 }
 
 console.log(productOfArray([1, 2, 3, 10]));
+
+// function called contains that searches for a value in a nested object. It retunrs true if the object contains that value
+var nestedObject = {
+  data: {
+    info: {
+      stuff: {
+        thing: {
+          moreStuff: {
+            magicNumber: 44,
+            something: "foo2",
+          },
+        },
+      },
+    },
+  },
+};
+
+function contains(obj, value) {
+  for (var key in obj) {
+    if (typeof obj[key] === "object") {
+      return contains(obj[key], value);
+    }
+
+    if (obj[key] === value) {
+      return true;
+    }
+  }
+  return false;
+}
+
+console.log(contains(nestedObject, 44)); // true
+console.log(contains(nestedObject, "foo")); // false
+
+function SumSquares(array) {
+  if (array.length === 0) return 0;
+  let total = 0;
+
+  for (let i = 0; i < array.length; i++) {
+    if (Array.isArray(array[i])) {
+      total += SumSquares(array[i]);
+    } else {
+      total += array[i] * array[i];
+    }
+  }
+
+  return total;
+}
