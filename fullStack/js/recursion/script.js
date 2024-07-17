@@ -91,3 +91,61 @@ function fibsRecNum(n) {
 }
 
 console.log(fibsRecNum(8));
+
+function iterativeMergeSort(arr) {
+  if (arr.length <= 1) {
+    return arr;
+  }
+
+  let sorted = arr.map((item) => [item]); // Each element is a sub-array
+
+  while (sorted.length > 1) {
+    let temp = [];
+
+    for (let i = 0; i < sorted.length; i += 2) {
+      if (i + 1 < sorted.length) {
+        temp.push(merge(sorted[i], sorted[i + 1]));
+      } else {
+        temp.push(sorted[i]);
+      }
+    }
+    sorted = temp;
+  }
+
+  return sorted[0];
+}
+
+function merge(left, right) {
+  let result = [];
+  let leftIndex = 0;
+  let rightIndex = 0;
+
+  while (leftIndex < left.length && rightIndex < right.length) {
+    if (left[leftIndex] < right[rightIndex]) {
+      result.push(left[leftIndex]);
+      leftIndex++;
+    } else {
+      result.push(right[rightIndex]);
+      rightIndex++;
+    }
+  }
+
+  return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+}
+
+function mergeSort(arr) {
+  if (arr.length <= 1) {
+    return arr;
+  }
+
+  const mid = Math.floor(arr.length / 2);
+  const left = mergeSort(arr.slice(0, mid));
+  const right = mergeSort(arr.slice(mid));
+
+  return merge(left, right);
+}
+
+// merge sort example
+const arr = [34, 7, 23, 32, 5, 62];
+console.log(iterativeMergeSort(arr));
+console.log(mergeSort(arr));
