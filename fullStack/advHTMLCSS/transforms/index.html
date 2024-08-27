@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intro to Transforms</title>
+    <link rel="stylesheet" href="transform.css" />
+    <style>
+            @keyframes orbit {
+        from {
+          transform:
+          rotate(0deg)
+          translateX(80px);
+        }
+
+        to {
+          rotate(360deg)
+          translateX(80px);
+        }
+      }
+
+      @media (
+        prefers-reduced-motion: no-preference
+      ) {
+        .moon {
+          animation: orbit 6000ms linear infinite;
+        }
+
+      }
+    </style>
+  </head>
+  <body>
+    <div class="red-box"></div>
+    <div class="blue-box"></div>
+    <br />
+    <div class="wrapper">
+      <div class="planet"></div>
+      <div class="moon"></div>
+    </div>
+  </body>
+</html>

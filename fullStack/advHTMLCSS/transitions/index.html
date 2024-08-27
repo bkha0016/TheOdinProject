@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transitions</title>
+    <style>
+      #transition-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+      }
+
+      button {
+        border: 1px solid black;
+        border-radius: 5px;
+        padding: 2% 5% 2% 5%;
+        background-color: white;
+        color: white;
+        transition: background-color 1s ease-out 0.25s;
+      }
+
+      button:hover {
+        background-color: black;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="transition-container">
+      <button>Transition!</button>
+      <p>Hover your mouser over the rectangle above!</p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,96 @@
+/* This is the tranform function value to rotate an element on a 2D plane */
+.rotate-by-deg {
+  transform: rotate(45deg);
+}
+
+.rotate-by-rad {
+  transform: rotate(-1rad);
+}
+
+.rotate-by-turn {
+  transform: rotate(0.3turn);
+}
+/* Scale: these are the transform function values to scale an element on a 2D plane */
+/* Skew: these are the transform function values to skew an element on a 2D plane */
+/* Translate: these are the transform function values to translate an element on a 2D plane*/
+.element {
+  transform: scaleX();
+  transform: scaleY();
+  transform: scale();
+  transform: skewX();
+  transform: skewY();
+  transform: skew();
+  transform: translateX();
+  transform: translateY();
+  transform: translate();
+}
+
+/* 
+CHAINING MULTIPLE TRANSFORMS 
+adding more transform fn with a space between each one
+*/
+.red-box,
+.blue-box {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+}
+
+.red-box {
+  background: red;
+  transform: rotate(45deg) translate(200%);
+}
+
+.blue-box {
+  background: blue;
+  transform: translate(200%) rotate(45deg);
+}
+
+/* Rotate specific axis: transform function values to rotate an element in a 3D space */
+
+.element {
+  transform: rotateX("angle");
+  transform: rotateY("angle");
+  transform: rotateZ("angle");
+  transform: rotate3d();
+}
+
+/* 
+translateZ doesnt do much w.o perspective
+Instead, perspective and translateZ work together to create the illusion 3-dimensional distance from the rendered object, as shown in the example below
+*/
+
+.translate30 {
+  transform: perspective(100px) translateZ(30px);
+}
+.translate-100 {
+  transform: perspective(100px) translateZ(-100px);
+}
+
+.translate-200 {
+  transform: perspective(100px) translateZ(-200px);
+}
+
+.wrapper {
+  position: relative;
+}
+
+.planet {
+  width: 80px;
+  height: 80px;
+  background: dodgerblue;
+  border-radius: 50%;
+}
+
+.moon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 20px;
+  height: 20px;
+  background: silver;
+  border-radius: 50%;
+}
