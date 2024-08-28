@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keyframes</title>
+    <style>
+      .container {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      #ball {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        border: 1px solid black;
+        border-radius: 50%;
+        /* animation-duration: 2s;
+        animation-name: change-color;
+        animation-iteration-count: infinite;
+        animation-direction: alternate; */
+        animation: 2s change-color infinite alternate;
+      }
+
+      @keyframes change-color {
+        from {
+          background-color: red;
+        }
+        50% {
+          transform: scale(1.5);
+          background-color: blue;
+        }
+        to {
+          background-color: green;
+        }
+      }
+
+      p {
+        animation-duration: 3s;
+        animation-name: slidein;
+      }
+
+      p span {
+        display: inline-block;
+        animation-duration: 3s;
+        animation-name: growshrink;
+      }
+
+      .slidein {
+        animation-duration: 3s;
+        animation-name: slidein;
+        animation-iteration-count: 3;
+        animation-direction: alternate;
+      }
+
+      @keyframes slidein {
+        from {
+          translate: 150vm 0;
+          scale: 200% 1;
+        }
+
+        to {
+          translate: 0 0;
+          scale: 100% 1;
+        }
+      }
+
+      @keyframes growshrink {
+        25%,
+        75% {
+          scale: 100%;
+        }
+
+        50% {
+          scale: 200%;
+          color: magenta;
+        }
+      }
+
+      @keyframes bounce {
+        from {
+          transform: translateY(0px);
+        }
+        to {
+          transform: translateY(-20px);
+        }
+      }
+      .box {
+        width: 75px;
+        height: 75px;
+        background: slateblue;
+        padding: 8px;
+        display: grid;
+        place-content: center;
+        color: white;
+        text-align: center;
+        border-radius: 50%;
+        animation: bounce 300ms alternate infinite
+          cubic-bezier(0.2, 0.65, 0.6, 1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="ball"></div>
+      <br />
+      <p>
+        The Caterpillar and <span>Alice</span> looked at each other for some
+        time in silence: at last the Caterpillar took the hookah out of its
+        mouth, and addressed her in a languid, sleepy voice.
+      </p>
+    </div>
+
+    <h1 id="watchme">Watch me move</h1>
+    <p>
+      This example shows how to use CSS animations to make
+      <code>H1</code> elements move across the page.
+    </p>
+    <p>
+      In addition, we output some text each time an animation event fires, so
+      you can see them in action
+    </p>
+    <ul id="output"></ul>
+    <br />
+    <div class="box"></div>
+  </body>
+  <script>
+    const element = document.getElementById("watchme");
+    element.addEventListener("animationstart", listener, false);
+    element.addEventListener("animationend", listener, false);
+    element.addEventListener("animationiteration", listener, false);
+
+    element.className = "slidein";
+
+    function listener(event) {
+      const l = document.createElement("li");
+      switch (event.type) {
+        case "animationstart":
+          l.textContent = `Started: elapsed time is ${event.elapsedTime}`;
+          break;
+        case "animationend":
+          l.textContent = `Ended: elapsed time is ${event.elapsedTime}`;
+          break;
+        case "animationiteration":
+          l.textContent = `New loop started at time ${event.elapsedTime}`;
+          break;
+      }
+
+      document.getElementById("output").appendChild(l);
+    }
+  </script>
+</html>

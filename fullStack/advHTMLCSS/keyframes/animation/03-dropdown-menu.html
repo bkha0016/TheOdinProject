@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dropdown Menu Animation</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f4f4f4;
+      }
+
+      .menu {
+        position: relative;
+        width: 200px;
+      }
+
+      .menu-title {
+        padding: 10px;
+        background-color: #3498db;
+        color: white;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      .dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        overflow: hidden;
+        transform-origin: top;
+        transform: scaleY(0);
+        display: none;
+      }
+
+      .dropdown.active {
+        display: block;
+        animation: dropdownExpand 0.5s ease forwards;
+      }
+
+      .dropdown li {
+        list-style: none;
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+      }
+
+      .dropdown li:last-child {
+        border-bottom: none;
+      }
+
+      @keyframes dropdownExpand {
+        0% {
+          transform: scaleY(0);
+        }
+        80% {
+          transform: scaleY(1.2);
+        }
+        100% {
+          transform: scaleY(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="menu">
+      <div class="menu-title">Menu</div>
+      <ul class="dropdown">
+        <li>Option 1</li>
+        <li>Option 2</li>
+        <li>Option 3</li>
+      </ul>
+    </div>
+
+    <script>
+      const menuTitle = document.querySelector(".menu-title");
+      const dropdown = document.querySelector(".dropdown");
+
+      menuTitle.addEventListener("click", () => {
+        dropdown.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>

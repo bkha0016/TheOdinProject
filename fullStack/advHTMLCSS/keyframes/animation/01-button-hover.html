@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Button Hover</title>
+    <style>
+      .button {
+        background-color: #3498db;
+        color: white;
+        padding: 15px 30px;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      /* Keyframe for the grow effect */
+      @keyframes grow {
+        0% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1.1);
+        }
+      }
+
+      /* apply the grow effect on hover */
+      .button:hover {
+        animation: grow 0.3s forwards;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="button">Hover me!</button>
+  </body>
+</html>

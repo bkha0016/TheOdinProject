@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pop-up Modal</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f4f4f4;
+      }
+
+      .open-btn {
+        padding: 10px 20px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      /* Modal styles */
+      .modal {
+        position: fixed;
+        top: -100%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        max-width: 500px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        transition: top 0.5s ease, opacity 0.5s ease;
+        z-index: 1000;
+      }
+
+      .modal-content {
+        padding: 20px;
+      }
+
+      .modal-header,
+      .modal-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .modal-header h2 {
+        margin: 0;
+      }
+
+      .close-btn {
+        padding: 5px 10px;
+        background-color: #e74c3c;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      /* Active state for modal */
+      .modal.active {
+        top: 20%;
+        opacity: 1;
+      }
+
+      /* Background overlay */
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        z-index: 999;
+      }
+
+      .overlay.active {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="open-btn">Open Modal</button>
+
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Modal -->
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Modal Title</h2>
+        <button class="close-btn">Close Modal</button>
+      </div>
+      <div class="modal-content">
+        <p>This is the content inside the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="close-btn">Close Modal</button>
+      </div>
+    </div>
+
+    <script>
+      // Get elements
+      const openBtn = document.querySelector(".open-btn");
+      const closeBtns = document.querySelectorAll(".close-btn");
+      const modal = document.querySelector(".modal");
+      const overlay = document.querySelector(".overlay");
+
+      // Open modal
+      openBtn.addEventListener("click", () => {
+        modal.classList.add("active");
+        overlay.classList.add("active");
+      });
+
+      // Close modal
+      closeBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          modal.classList.remove("active");
+          overlay.classList.remove("active");
+        });
+      });
+
+      // Close modal when clicking outside of it
+      overlay.addEventListener("click", () => {
+        modal.classList.remove("active");
+        overlay.classList.remove("active");
+      });
+    </script>
+  </body>
+</html>
