@@ -1,0 +1,157 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+header,
+main,
+aside,
+footer {
+  padding: 20px;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 10px;
+}
+
+p {
+  margin: 0 0 20px;
+}
+
+/* Header */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links li {
+  margin: 0;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Main */
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #f4f4f4;
+}
+
+.cta-button {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+article {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Aside */
+.sidebar {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 10px;
+}
+
+.social-links {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-links li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Media Queries */
+
+/* Tablet Styles */
+@media (min-width: 600px) {
+  .content {
+    flex-direction: row;
+  }
+
+  .hero {
+    padding: 80px 20px;
+  }
+
+  .cta-button {
+    font-size: 18px;
+  }
+
+  aside {
+    padding: 20px;
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px) {
+  .navbar {
+    justify-content: space-between;
+  }
+
+  .content {
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-direction: row;
+  }
+
+  .hero {
+    padding: 100px 50px;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+  }
+
+  .social-links {
+    justify-content: flex-end;
+  }
+}
