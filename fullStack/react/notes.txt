@@ -1,0 +1,5 @@
+npm create vite@latest my-first-react-app -- --template react
+cd my-first-react-app
+npm install
+#to run dev build
+npm run dev
