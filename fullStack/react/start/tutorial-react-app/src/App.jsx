@@ -40,6 +40,24 @@ const Counter = () => {
   );
 };
 
+function TodoList() {
+  return (
+    <>
+      <h1>Hedy Lamarr's Todos</h1>
+      <img
+        src="https://i.imgur.com/yXOvdOSs.jpg"
+        alt="Hedy Lamarr"
+        className="photo"
+      />
+      <ul>
+        <li>Invent new traffic lights</li>
+        <li>Rehearse a movie scene</li>
+        <li>Improve the spectrum technology</li>
+      </ul>
+    </>
+  );
+}
+
 // const Timer = () => {
 //   const [count, setCount] = useState(0);
 
@@ -55,4 +73,49 @@ const Counter = () => {
 //   return <div>Count: {count}</div>;
 // };
 
-export { App, Demo, Counter };
+const Bio = () => {
+  return (
+    <>
+      <div className="intro">
+        <h1>Welcome to my website!</h1>
+      </div>
+
+      <p className="summary">
+        You can find my thoughts here.
+        <br />
+        <b>
+          And <i>pictures</i>
+        </b>{" "}
+        of scientist!
+      </p>
+    </>
+  );
+};
+
+const person = {
+  name: "Gregorio Y. Zara",
+  theme: {
+    backgroundColor: "black",
+    color: "pink",
+  },
+};
+
+const Newtodo = () => {
+  return (
+    <div style={person.theme}>
+      <h1>{person.name}'s Todos</h1>
+      <img
+        className="avatar"
+        src="https://i.imgur.com/7vQD0fPs.jpg"
+        alt="Gregorio Y. Zara"
+      />
+      <ul>
+        <li>Improve the videophone</li>
+        <li>Prepare aeronautics lectures</li>
+        <li>Work on the alcohol-fuelled engine</li>
+      </ul>
+    </div>
+  );
+};
+
+export { App, Demo, Counter, TodoList, Bio, Newtodo };
