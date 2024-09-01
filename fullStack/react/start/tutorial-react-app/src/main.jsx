@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { App, Demo, Counter, TodoList, Bio, Newtodo } from "./App.jsx";
+import { App, Demo, Counter, TodoList, Bio, Newtodo, Animals } from "./App.jsx";
 import "./index.css";
 
 createRoot(document.getElementById("root")).render(
@@ -11,5 +11,6 @@ createRoot(document.getElementById("root")).render(
     <TodoList></TodoList>
     <Bio></Bio>
     <Newtodo></Newtodo>
+    <Animals></Animals>
   </StrictMode>
 );

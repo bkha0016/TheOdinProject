@@ -1,12 +1,28 @@
 import React, { useState } from "react";
 import "./App.css";
 
+const COLORS = ["pink", "green", "blue", "yellow", "purple"];
+
 function App() {
   const [count, setCount] = useState(0);
+  const [backgroundColor, setBackgroundColor] = useState(COLORS[0]);
 
+  const onButtonClick = (color) => () => {
+    setBackgroundColor(color);
+  };
   return (
     <>
-      <div></div>
+      <div className="App" style={{ backgroundColor }}></div>
+      {COLORS.map((color) => (
+        <button
+          type="button"
+          key={color}
+          onClick={onButtonClick(color)}
+          className={backgroundColor === color ? "selected" : ""}
+        >
+          {color}
+        </button>
+      ))}
     </>
   );
 }
@@ -118,4 +134,15 @@ const Newtodo = () => {
   );
 };
 
-export { App, Demo, Counter, TodoList, Bio, Newtodo };
+const Animals = () => {
+  const animals = ["Lion", "Cow", "Snake", "Lizard"];
+  const animalsList = animals.map((animal) => <li key={animal}>{animal}</li>);
+  return (
+    <>
+      <h1>Animals: </h1>
+      <ul>{animalsList}</ul>
+    </>
+  );
+};
+
+export { App, Demo, Counter, TodoList, Bio, Newtodo, Animals };
