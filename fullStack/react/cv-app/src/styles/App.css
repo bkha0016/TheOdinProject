@@ -1,0 +1,122 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+.cv-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+h2 {
+  border-bottom: 2px solid #333;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  height: 40px;
+}
+
+textarea {
+  resize: none;
+}
+
+.cv-section {
+  margin-bottom: 20px;
+}
+
+.cv-section h2 {
+  font-size: 1.2em;
+}
+
+.cv-section p {
+  margin: 5px 0;
+}
+
+.cv-section p span {
+  font-weight: bold;
+}
+
+.add-more-button {
+  background-color: #007bff;
+}
+
+.add-more-button:hover {
+  background-color: #0056b3;
+}
+
+#general-info,
+#education,
+#practical-experience {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+#general-info h2,
+#education h2,
+#practical-experience h2 {
+  color: #444;
+}
+
+#general-info p,
+#education p,
+#practical-experience p {
+  line-height: 1.6;
+}
+
+#education .education-entry,
+#practical-experience .experience-entry {
+  margin-top: 10px;
+  padding-left: 10px;
+  border-left: 2px solid #ddd;
+}
+
+.cv-result h2 {
+  color: #666;
+}
+
+.cv-result p {
+  margin: 10px 0;
+}

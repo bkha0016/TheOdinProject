@@ -3,3 +3,58 @@ cd my-first-react-app
 npm install
 #to run dev build
 npm run dev
+
+To create a React app using Vite with a clean, blank state and avoid the prefilled background and Vite logo, you can follow these steps:
+
+1. Create the React App Using Vite
+Start by creating the React app as you normally would:
+
+bash
+Copy code
+npm create vite@latest my-first-react-app -- --template react
+2. Navigate to the Project Directory and Install Dependencies
+Move into the project directory and install the dependencies:
+
+bash
+Copy code
+cd my-first-react-app
+npm install
+3. Remove Unnecessary Prefilled Content
+Now, clean up the prefilled content:
+
+Remove the Vite Logo and Unnecessary Files:
+
+Delete the src/assets folder which contains the Vite logo.
+In src/App.jsx, remove the import of the Vite logo and any other unnecessary code.
+Update the App.jsx File:
+
+Replace the existing code in src/App.jsx with a simple clean component:
+
+javascript
+Copy code
+import React from 'react';
+
+const App = () => {
+  return (
+    <div>
+      <h1>Hello, React!</h1>
+    </div>
+  );
+};
+
+export default App;
+Clean the index.css:
+
+If you want a completely clean start, you can also clear the src/index.css file or remove it entirely if you prefer to handle styles differently.
+
+Update the index.html File:
+
+In public/index.html, you can remove any unnecessary metadata or comments that Vite adds by default.
+
+4. Start the Development Server
+Now that the app is clean and blank, you can start the development server:
+
+bash
+Copy code
+npm run dev
+Your React app will now start with a blank state, without any unnecessary prefilled content or logos.
