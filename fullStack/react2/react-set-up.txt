@@ -1,0 +1,12 @@
+> npm create vite@latest 
+> project name 
+> select react 
+> select either JS/JS+SWC 
+> npm i or npm install (install all depedencies) 
+> npm run dev to check the web 
+> asset + public folder delete 
+> app.css + index.css delete 
+> remove all import dependencies on main.jsx 
+> remove all contents on App.jsx 
+
+
