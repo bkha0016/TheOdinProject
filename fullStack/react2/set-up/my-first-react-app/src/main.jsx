@@ -9,6 +9,7 @@ import TodoList from "./TodoList.jsx";
 import Animal from "./Animals.jsx";
 import { Todo } from "./Keys.jsx";
 import Button from "./Button.jsx";
+import Clock from "./Clock.jsx";
 
 const MyComp = (props) => {
   return <div>Hello, {props.name}!</div>;
@@ -34,5 +35,7 @@ createRoot(document.getElementById("root")).render(
     <Button
       handleClick={() => handleButtonClick("https://www.theodinproject.com")}
     />
+
+    <Clock />
   </StrictMode>
 );

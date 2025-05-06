@@ -1,63 +1,77 @@
-import { useState } from "react";
-import "../styles/EducationalExperience.css"; // Optional styling file
+import React, { useState } from "react";
+import "../styles/EducationalExperience.css";
 
 export default function EducationalExperience({ data, onChange }) {
-  const [isEditing, setIsEditing] = useState(true);
+  const [newEducation, setNewEducation] = useState({
+    school: "",
+    title: "",
+    date: "",
+  });
 
-  function handleChange(e) {
+  const handleAddEducation = () => {
+    onChange([...data, newEducation]);
+    setNewEducation({ school: "", title: "", date: "" });
+  };
+
+  const handleRemoveEducation = (index) => {
+    const updatedEducation = data.filter((_, i) => i !== index);
+    onChange(updatedEducation);
+  };
+
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    onChange({
-      ...data,
+    setNewEducation((prev) => ({
+      ...prev,
       [name]: value,
-    });
-  }
-
-  function handleEditToggle() {
-    setIsEditing(!isEditing);
-  }
+    }));
+  };
 
   return (
-    <div className="educational-experience">
+    <div className="section">
       <h2>Educational Experience</h2>
-      {isEditing ? (
-        <>
-          <input
-            type="text"
-            name="school"
-            placeholder="School Name"
-            value={data.school}
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            name="title"
-            placeholder="Title of Study"
-            value={data.title}
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            name="date"
-            placeholder="Date of Study"
-            value={data.date}
-            onChange={handleChange}
-          />
-          <button onClick={handleEditToggle}>Submit</button>
-        </>
-      ) : (
-        <>
+
+      {/* Existing Education Entries */}
+      {data.map((entry, index) => (
+        <div key={index} className="entry">
           <p>
-            <strong>School:</strong> {data.school}
+            <strong>School:</strong> {entry.school}
           </p>
           <p>
-            <strong>Title:</strong> {data.title}
+            <strong>Title:</strong> {entry.title}
           </p>
           <p>
-            <strong>Date:</strong> {data.date}
+            <strong>Date:</strong> {entry.date}
           </p>
-          <button onClick={handleEditToggle}>Edit</button>
-        </>
-      )}
+          <button onClick={() => handleRemoveEducation(index)}>Remove</button>
+        </div>
+      ))}
+
+      {/* Form to Add New Education */}
+      <div className="new-education">
+        <h3>Add New Education</h3>
+        <input
+          type="text"
+          name="school"
+          placeholder="School Name"
+          value={newEducation.school}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="title"
+          placeholder="Title of Study"
+          value={newEducation.title}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="date"
+          placeholder="Date of Study"
+          value={newEducation.date}
+          onChange={handleChange}
+        />
+        <button onClick={handleAddEducation}>Add Education</button>
+      </div>
     </div>
   );
 }

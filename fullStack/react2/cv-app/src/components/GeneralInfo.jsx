@@ -1,51 +1,60 @@
-import { useState } from "react";
-import "../styles/GeneralInfo.css"; // Optional: create and import your styles
+import React, { useState } from "react";
+import "../styles/GeneralInfo.css";
 
 export default function GeneralInfo({ data, onChange }) {
-  const [isEditing, setIsEditing] = useState(true);
+  const [editMode, setEditMode] = useState(false);
+  const [updatedInfo, setUpdatedInfo] = useState({
+    name: data.name,
+    email: data.email,
+    phone: data.phone,
+  });
 
-  function handleChange(e) {
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    onChange({
-      ...data,
+    setUpdatedInfo((prev) => ({
+      ...prev,
       [name]: value,
-    });
-  }
+    }));
+  };
 
-  function handleEditToggle() {
-    setIsEditing(!isEditing);
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onChange(updatedInfo);
+    setEditMode(false);
+  };
 
   return (
-    <div className="general-info">
+    <div className="section">
       <h2>General Information</h2>
-      {isEditing ? (
-        <>
+
+      {/* Display General Info or Edit Form */}
+      {editMode ? (
+        <form onSubmit={handleSubmit}>
           <input
             type="text"
             name="name"
-            placeholder="Full Name"
-            value={data.name}
+            placeholder="Your Name"
+            value={updatedInfo.name}
             onChange={handleChange}
           />
           <input
             type="email"
             name="email"
-            placeholder="Email"
-            value={data.email}
+            placeholder="Your Email"
+            value={updatedInfo.email}
             onChange={handleChange}
           />
           <input
-            type="tel"
+            type="text"
             name="phone"
-            placeholder="Phone Number"
-            value={data.phone}
+            placeholder="Your Phone Number"
+            value={updatedInfo.phone}
             onChange={handleChange}
           />
-          <button onClick={handleEditToggle}>Submit</button>
-        </>
+          <button type="submit">Submit</button>
+        </form>
       ) : (
-        <>
+        <div>
           <p>
             <strong>Name:</strong> {data.name}
           </p>
@@ -55,8 +64,8 @@ export default function GeneralInfo({ data, onChange }) {
           <p>
             <strong>Phone:</strong> {data.phone}
           </p>
-          <button onClick={handleEditToggle}>Edit</button>
-        </>
+          <button onClick={() => setEditMode(true)}>Edit</button>
+        </div>
       )}
     </div>
   );

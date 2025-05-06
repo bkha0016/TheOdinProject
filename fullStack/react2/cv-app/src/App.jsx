@@ -5,104 +5,97 @@ import PracticalExperience from "./components/PracticalExperience";
 import "./styles/App.css";
 
 export default function App() {
-  const [cvData, setCvData] = useState({
-    generalInfo: {
-      name: "",
-      email: "",
-      phone: "",
-    },
-    education: {
-      school: "",
-      title: "",
-      date: "",
-    },
-    experience: {
-      company: "",
-      position: "",
-      responsibilities: "",
-      from: "",
-      until: "",
-    },
+  const [generalInfo, setGeneralInfo] = useState({
+    name: "",
+    email: "",
+    phone: "",
   });
+
+  const [education, setEducation] = useState([
+    { school: "", title: "", date: "" },
+  ]);
+
+  const [experience, setExperience] = useState([
+    { company: "", position: "", responsibilities: "", from: "", until: "" },
+  ]);
 
   return (
     <div className="app">
       <h1>Create Your CV</h1>
 
+      {/* General Info Section */}
       <GeneralInfo
-        data={cvData.generalInfo}
-        onChange={(updatedData) =>
-          setCvData((prev) => ({
-            ...prev,
-            generalInfo: updatedData,
-          }))
-        }
+        data={generalInfo}
+        onChange={(updatedData) => setGeneralInfo(updatedData)}
       />
 
+      {/* Educational Experience Section */}
       <EducationalExperience
-        data={cvData.education}
-        onChange={(updatedData) =>
-          setCvData((prev) => ({
-            ...prev,
-            education: updatedData,
-          }))
-        }
+        data={education}
+        onChange={(updatedData) => setEducation(updatedData)}
       />
 
+      {/* Practical Experience Section */}
       <PracticalExperience
-        data={cvData.experience}
-        onChange={(updatedData) =>
-          setCvData((prev) => ({
-            ...prev,
-            experience: updatedData,
-          }))
-        }
+        data={experience}
+        onChange={(updatedData) => setExperience(updatedData)}
       />
 
+      {/* Preview Section */}
       <div className="preview">
         <h2>Preview of Your CV</h2>
-
         <p>
-          <strong>Name:</strong> {cvData.generalInfo.name}
+          <strong>Name:</strong> {generalInfo.name}
         </p>
         <p>
-          <strong>Email:</strong> {cvData.generalInfo.email}
+          <strong>Email:</strong> {generalInfo.email}
         </p>
         <p>
-          <strong>Phone:</strong> {cvData.generalInfo.phone}
+          <strong>Phone:</strong> {generalInfo.phone}
         </p>
 
         <h3>Education</h3>
-        <p>
-          <strong>School:</strong> {cvData.education.school}
-        </p>
-        <p>
-          <strong>Title:</strong> {cvData.education.title}
-        </p>
-        <p>
-          <strong>Date:</strong> {cvData.education.date}
-        </p>
+        {education.map((entry, index) => (
+          <div key={index}>
+            <p>
+              <strong>School:</strong> {entry.school}
+            </p>
+            <p>
+              <strong>Title:</strong> {entry.title}
+            </p>
+            <p>
+              <strong>Date:</strong> {entry.date}
+            </p>
+          </div>
+        ))}
 
         <h3>Practical Experience</h3>
-        <p>
-          <strong>Company:</strong> {cvData.experience.company}
-        </p>
-        <p>
-          <strong>Position:</strong> {cvData.experience.position}
-        </p>
-        <p>
-          <strong>Responsibilities:</strong>{" "}
-          {cvData.experience.responsibilities}
-        </p>
-        <p>
-          <strong>From:</strong> {cvData.experience.from}
-        </p>
-        <p>
-          <strong>Until:</strong> {cvData.experience.until}
-        </p>
+        {experience.map((entry, index) => (
+          <div key={index}>
+            <p>
+              <strong>Company:</strong> {entry.company}
+            </p>
+            <p>
+              <strong>Position:</strong> {entry.position}
+            </p>
+            <p>
+              <strong>Responsibilities:</strong> {entry.responsibilities}
+            </p>
+            <p>
+              <strong>From:</strong> {entry.from}
+            </p>
+            <p>
+              <strong>Until:</strong> {entry.until}
+            </p>
+          </div>
+        ))}
       </div>
 
-      <button onClick={() => downloadCVData(cvData)}>Export CV</button>
+      <button
+        onClick={() => downloadCVData({ generalInfo, education, experience })}
+      >
+        Export CV
+      </button>
     </div>
   );
 }
