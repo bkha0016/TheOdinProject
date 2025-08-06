@@ -1,0 +1,194 @@
+Here’s a step-by-step guide to create a full Node.js project with:
+
+EJS as the view engine
+
+Express for routing
+
+MongoDB for the database (via Mongoose)
+
+Directory structure for scalability
+
+✅ Step 1: Initialize the project
+bash
+Copy
+Edit
+mkdir my-node-project
+cd my-node-project
+npm init -y
+✅ Step 2: Install necessary packages
+bash
+Copy
+Edit
+npm install express ejs mongoose body-parser
+npm install --save-dev nodemon
+Explanation:
+
+express: Web framework
+
+ejs: Templating engine
+
+mongoose: MongoDB ORM
+
+body-parser: Parse incoming request bodies
+
+nodemon: Auto-restarts the server during development
+
+✅ Step 3: Project Structure
+pgsql
+Copy
+Edit
+my-node-project/
+├── views/
+│   ├── partials/
+│   │   ├── nav.ejs
+│   │   └── footer.ejs
+│   └── index.ejs
+├── routes/
+│   └── blogRoutes.js
+├── models/
+│   └── blog.js
+├── public/
+│   └── css/
+│       └── style.css
+├── app.js
+├── .env
+└── package.json
+✅ Step 4: app.js (entry point)
+js
+Copy
+Edit
+const express = require('express');
+const mongoose = require('mongoose');
+const blogRoutes = require('./routes/blogRoutes');
+const app = express();
+
+// Connect to MongoDB
+mongoose.connect('mongodb://localhost:27017/blogDB', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => app.listen(3000))
+  .catch(err => console.log(err));
+
+// Set EJS as the view engine
+app.set('view engine', 'ejs');
+
+// Middleware & static files
+app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
+
+// Routes
+app.use(blogRoutes);
+✅ Step 5: Create a simple blog model (models/blog.js)
+js
+Copy
+Edit
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const blogSchema = new Schema({
+  title: String,
+  snippet: String,
+  body: String
+}, { timestamps: true });
+
+module.exports = mongoose.model('Blog', blogSchema);
+✅ Step 6: Add routes (routes/blogRoutes.js)
+js
+Copy
+Edit
+const express = require('express');
+const Blog = require('../models/blog');
+const router = express.Router();
+
+// Homepage
+router.get('/', async (req, res) => {
+  const blogs = await Blog.find().sort({ createdAt: -1 });
+  res.render('index', { blogs });
+});
+
+// Add blog form (GET)
+router.get('/add', (req, res) => {
+  res.render('add');
+});
+
+// Add blog (POST)
+router.post('/blogs', async (req, res) => {
+  await Blog.create(req.body);
+  res.redirect('/');
+});
+
+module.exports = router;
+✅ Step 7: Example EJS view (views/index.ejs)
+ejs
+Copy
+Edit
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <%- include('partials/nav') %>
+
+  <div class="blogs">
+    <% if (blogs.length > 0) { %>
+      <% blogs.forEach(blog => { %>
+        <h3><%= blog.title %></h3>
+        <p><%= blog.snippet %></p>
+      <% }) %>
+    <% } else { %>
+      <p>No blogs yet</p>
+    <% } %>
+  </div>
+
+  <%- include('partials/footer') %>
+</body>
+</html>
+✅ Step 8: Add partials/nav.ejs and footer.ejs
+ejs
+Copy
+Edit
+<!-- nav.ejs -->
+<nav>
+  <a href="/">Home</a>
+  <a href="/add">Add Blog</a>
+</nav>
+ejs
+Copy
+Edit
+<!-- footer.ejs -->
+<footer>
+  <p>All rights reserved &copy; 2025</p>
+</footer>
+✅ Step 9: Use Nodemon in Development
+In package.json, add this script:
+
+json
+Copy
+Edit
+"scripts": {
+  "start": "nodemon app.js"
+}
+Then run:
+
+bash
+Copy
+Edit
+npm start
+Let me know if you want:
+
+Login system
+
+Delete/edit blog support
+
+Use .env for MongoDB URL
+
+Deploy this to Render or Railway
+
+
+you can use dotenv to load enviroment variables
+the file must be add to your .gitignore files to keep secretes safe from being published
+require('dotenv').config();
+
+
