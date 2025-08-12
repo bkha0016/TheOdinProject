@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+
+<h2>Categories</h2>
+<a href="/categories/new">Create new category</a>
+<ul>
+  <% categories.forEach(cat => { %>
+  <li>
+    <a href="/categories/<%= cat.id %>"><%= cat.name %></a>
+    - <a href="/categories/<%= cat.id %>/edit">Edit</a> -
+    <a href="/categories/<%= cat.id %>/delete">Delete</a>
+  </li>
+  <% }) %>
+</ul>
+
+<%- include('../partials/footer') %>

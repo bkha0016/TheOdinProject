@@ -1,0 +1,30 @@
+<%- include('../partials/header') %>
+
+<h2><%= category.id ? 'Edit Category' : 'Create Category' %></h2>
+
+<% if (errors && errors.length) { %>
+<ul style="color: red">
+  <% errors.forEach(e => { %>
+  <li><%= e.msg %></li>
+  <% }) %>
+</ul>
+<% } %>
+
+<form
+  method="POST"
+  action="<%= category.id ? '/categories/' + category.id + '/edit' : '/categories/new' %>"
+>
+  <label>Name</label><br />
+  <input
+    type="text"
+    name="name"
+    value="<%= category.name || '' %>"
+    required
+  /><br />
+  <label>Description</label><br />
+  <textarea name="description"><%= category.description || '' %></textarea
+  ><br />
+  <button type="submit">Save</button>
+</form>
+
+<%- include('../partials/footer') %>

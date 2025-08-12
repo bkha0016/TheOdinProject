@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+
+<h2>Delete Category: <%= category.name %></h2>
+<p>Deleting this category will also remove all items in it (cascade).</p>
+
+<% if (errors && errors.length) { %>
+<ul style="color: red">
+  <% errors.forEach(e => { %>
+  <li><%= e.msg %></li>
+  <% }) %>
+</ul>
+<% } %>
+
+<form method="POST" action="/categories/<%= category.id %>/delete">
+  <label>Admin password:</label><br />
+  <input type="password" name="adminPassword" required /><br />
+  <button type="submit">Confirm Delete</button>
+</form>
+
+<%- include('../partials/footer') %>

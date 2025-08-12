@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+
+<h2>Items</h2>
+<a href="/items/new">Create new item</a>
+
+<ul>
+  <% items.forEach(it => { %>
+  <li>
+    <a href="/items/<%= it.id %>"><%= it.name %></a> (Category: <%=
+    it.category_name || 'None' %>) - <%= it.price %> -
+    <a href="/items/<%= it.id %>/edit">Edit</a> -
+    <a href="/items/<%= it.id %>/delete">Delete</a>
+  </li>
+  <% }) %>
+</ul>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1>Search Users</h1>
+    <form action="/search/result" method="GET">
+      <input type="text" name="name" placeholder="Search by Name" />
+      <input type="text" name="email" placeholder="Search by Email" />
+      <button type="submit">Search</button>
+    </form>
+
+    <% if (user) { %>
+    <h2>User Found:</h2>
+    <p>Name: <%= user.name %></p>
+    <p>Email: <%= user.email %></p>
+    <p>Age: <%= user.age %></p>
+    <p>Bio: <%= user.bio %></p>
+    <% } else if (user === null) { %>
+    <!-- First load, no result yet -->
+    <% } else { %>
+    <p>No user found.</p>
+    <% } %>
+
+    <a href="/">Back to Form</a>
+  </body>
+</html>

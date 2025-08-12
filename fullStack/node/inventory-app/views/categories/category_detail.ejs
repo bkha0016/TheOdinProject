@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+
+<h2><%= category.name %></h2>
+<p><%= category.description %></p>
+
+<h3>Items in this category</h3>
+<ul>
+  <% items.forEach(it => { %>
+  <li><a href="/items/<%= it.id %>"><%= it.name %></a> — $<%= it.price %></li>
+  <% }) %>
+</ul>
+
+<p><a href="/items/new">Add new item</a></p>
+
+<%- include('../partials/footer') %>

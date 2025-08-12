@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+
+<h2>Delete Item: <%= item.name %></h2>
+
+<% if (errors && errors.length) { %>
+<ul style="color: red">
+  <% errors.forEach(e => { %>
+  <li><%= e.msg %></li>
+  <% }) %>
+</ul>
+<% } %>
+
+<form method="POST" action="/items/<%= item.id %>/delete">
+  <label>Admin password:</label><br />
+  <input type="password" name="adminPassword" required /><br />
+  <button type="submit">Confirm Delete</button>
+</form>
+
+<%- include('../partials/footer') %>
